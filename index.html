@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAWI-YE | المؤسسة الرقمية للإعلام والثقافة والنقد الفني</title>
+    <meta name="description" content="المظلة الرقمية الرائدة لتوثيق وتقييم الأعمال الفنية والأدبية والدرامية في الساحة اليمنية والعربية، والحاضنة لكل من شبكة البوصلة ومكتبة وموسوعة الحجرية.">
+    
+    <!-- إعدادات معاينة الرابط في واتساب وتويتر -->
+    <meta property="og:title" content="RAWI-YE | فجرٌ رقمي جديد للثقافة والفن">
+    <meta property="og:description" content="المؤسسة الرقمية الحاضنة للمنصات الثقافية والإعلامية والمرجع النقدي الأول للأعمال الفنية والأدبية.">
+    <meta property="og:url" content="https://rawi-ye.com">
+    <meta property="og:type" content="website">
+
+    <!-- استدعاء خطوط عربية وإنجليزية فاخرة من جوجل -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;600;800;900&family=Cinzel:wght@600;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-deep: #050507;
+            --bg-surface: rgba(18, 19, 24, 0.65);
+            --gold-primary: #d4af37;
+            --gold-light: #f3e5ab;
+            --gold-glow: rgba(212, 175, 55, 0.18);
+            --text-main: #f4f4f6;
+            --text-muted: #9496a1;
+            --border-subtle: rgba(255, 255, 255, 0.07);
+            --border-gold: rgba(212, 175, 55, 0.35);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-deep);
+            color: var(--text-main);
+            font-family: 'Alexandria', sans-serif;
+            overflow-x: hidden;
+            line-height: 1.8;
+            position: relative;
+        }
+
+        /* خلفية الشبكة السينمائية والإضاءة التفاعلية */
+        .ambient-bg {
+            position: fixed;
+            inset: 0;
+            z-index: -2;
+            background: 
+                radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.12) 0%, transparent 60%),
+                radial-gradient(circle at 10% 80%, rgba(30, 45, 85, 0.15) 0%, transparent 50%),
+                var(--bg-deep);
+        }
+
+        .grid-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            background-image: 
+                linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px);
+            background-size: 60px 60px;
+            mask-image: radial-gradient(circle at center, black 30%, transparent 85%);
+            -webkit-mask-image: radial-gradient(circle at center, black 30%, transparent 85%);
+        }
+
+        .cursor-glow {
+            position: fixed;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+            transition: width 0.3s, height 0.3s;
+        }
+
+        /* الشريط العلوي */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.8rem 7%;
+            border-bottom: 1px solid var(--border-subtle);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(5, 5, 7, 0.7);
+        }
+
+        .brand-logo {
+            font-family: 'Cinzel', serif;
+            font-size: 1.7rem;
+            font-weight: 800;
+            letter-spacing: 4px;
+            background: linear-gradient(135deg, #fff 0%, var(--gold-primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .status-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 0.45rem 1.1rem;
+            border-radius: 50px;
+            background: rgba(212, 175, 55, 0.08);
+            border: 1px solid var(--border-gold);
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--gold-light);
+        }
+
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--gold-primary);
+            border-radius: 50%;
+            box-shadow: 0 0 12px var(--gold-primary);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.5); opacity: 0.4; }
+        }
+
+        /* القسم الرئيسي Hero */
+        .hero {
+            min-height: 88vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 4rem 7%;
+            position: relative;
+        }
+
+        .eyebrow {
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            color: var(--gold-primary);
+            font-weight: 600;
+            margin-bottom: 1.2rem;
+            display: inline-block;
+            padding: 0.3rem 1rem;
+            border-right: 2px solid var(--gold-primary);
+            border-left: 2px solid var(--gold-primary);
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.08), transparent);
+        }
+
+        .hero-title-en {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(3rem, 9vw, 6.5rem);
+            font-weight: 800;
+            letter-spacing: 8px;
+            line-height: 1.05;
+            margin-bottom: 1rem;
+            background: linear-gradient(180deg, #ffffff 20%, #a8a8b3 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 20px 50px rgba(0,0,0,0.8);
+        }
+
+        .hero-title-ar {
+            font-size: clamp(1.4rem, 3.5vw, 2.3rem);
+            font-weight: 800;
+            color: var(--gold-light);
+            margin-bottom: 1.8rem;
+        }
+
+        .hero-desc {
+            max-width: 780px;
+            font-size: clamp(1rem, 1.8vw, 1.2rem);
+            color: var(--text-muted);
+            font-weight: 300;
+            margin-bottom: 3rem;
+        }
+
+        .hero-desc strong {
+            color: var(--text-main);
+            font-weight: 600;
+        }
+
+        /* مؤشر الإطلاق */
+        .launch-frame {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-gold);
+            padding: 1.8rem 2.5rem;
+            border-radius: 20px;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6), inset 0 0 25px rgba(212, 175, 55, 0.05);
+            max-width: 600px;
+            width: 100%;
+        }
+
+        .launch-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.8rem;
+            font-size: 0.9rem;
+            color: var(--gold-light);
+        }
+
+        .progress-track {
+            width: 100%;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-bar {
+            width: 82%;
+            height: 100%;
+            background: linear-gradient(90deg, #8a6d1b, var(--gold-primary), #fff);
+            border-radius: 10px;
+            position: relative;
+            animation: shimmer 3s infinite linear;
+        }
+
+        @keyframes shimmer {
+            0% { filter: brightness(1); }
+            50% { filter: brightness(1.35); }
+            100% { filter: brightness(1); }
+        }
+
+        /* الأقسام الداخلية */
+        section {
+            padding: 5.5rem 7%;
+            max-width: 1350px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-tag {
+            color: var(--gold-primary);
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title {
+            font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+            font-weight: 800;
+        }
+
+        /* قسم منصة النقد والتقييم الفني */
+        .spotlight-box {
+            background: linear-gradient(145deg, rgba(24, 25, 32, 0.85), rgba(10, 10, 14, 0.95));
+            border: 1px solid var(--border-gold);
+            border-radius: 28px;
+            padding: clamp(2rem, 5vw, 4rem);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.7);
+        }
+
+        .spotlight-box::before {
+            content: "RAWI CRITICS";
+            position: absolute;
+            left: -20px;
+            bottom: -30px;
+            font-family: 'Cinzel', serif;
+            font-size: clamp(4rem, 10vw, 8rem);
+            font-weight: 900;
+            color: rgba(255, 255, 255, 0.02);
+            pointer-events: none;
+            user-select: none;
+        }
+
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2.8rem;
+        }
+
+        .pillar-item {
+            background: rgba(255, 255, 255, 0.025);
+            border: 1px solid var(--border-subtle);
+            padding: 1.6rem;
+            border-radius: 18px;
+            transition: all 0.35s ease;
+        }
+
+        .pillar-item:hover {
+            border-color: var(--gold-primary);
+            transform: translateY(-5px);
+            background: rgba(212, 175, 55, 0.05);
+        }
+
+        .pillar-icon {
+            font-size: 1.6rem;
+            margin-bottom: 0.8rem;
+            display: inline-block;
+            color: var(--gold-primary);
+        }
+
+        .pillar-item h4 {
+            font-size: 1.15rem;
+            margin-bottom: 0.5rem;
+            color: #fff;
+        }
+
+        .pillar-item p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* بطاقات الكيانات التابعة */
+        .entities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+            gap: 2rem;
+        }
+
+        .entity-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-subtle);
+            border-radius: 24px;
+            padding: 2.5rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            backdrop-filter: blur(12px);
+        }
+
+        .entity-card:hover {
+            border-color: var(--gold-primary);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 30px var(--gold-glow);
+        }
+
+        .entity-number {
+            font-family: 'Cinzel', serif;
+            font-size: 3rem;
+            font-weight: 800;
+            color: rgba(212, 175, 55, 0.15);
+            line-height: 1;
+            margin-bottom: 1rem;
+        }
+
+        .entity-badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            padding: 0.3rem 0.85rem;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--gold-light);
+            margin-bottom: 1.2rem;
+            width: fit-content;
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .entity-card h3 {
+            font-size: 1.55rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .entity-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
+        }
+
+        .entity-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 1.2rem;
+            border-top: 1px solid var(--border-subtle);
+            font-size: 0.85rem;
+            color: var(--gold-primary);
+            font-weight: 600;
+        }
+
+        /* التذييل Footer */
+        footer {
+            border-top: 1px solid var(--border-subtle);
+            padding: 3.5rem 7%;
+            text-align: center;
+            background: rgba(3, 3, 5, 0.9);
+            margin-top: 4rem;
+        }
+
+        .footer-logo {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: 4px;
+            color: var(--gold-primary);
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-text {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* التجاوب مع الجوال */
+        @media (max-width: 768px) {
+            header {
+                padding: 1.2rem 5%;
+            }
+            .brand-logo {
+                font-size: 1.3rem;
+            }
+            .status-pill {
+                font-size: 0.7rem;
+                padding: 0.35rem 0.8rem;
+            }
+            .launch-frame {
+                padding: 1.3rem 1.5rem;
+            }
+            .entity-card {
+                padding: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="ambient-bg"></div>
+    <div class="grid-overlay"></div>
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+    <!-- الشريط العلوي -->
+    <header>
+        <div class="brand-logo">RAWI-YE</div>
+        <div class="status-pill">
+            <span class="pulse-dot"></span>
+            <span>قيد التطوير النهائي • الإطلاق قريباً</span>
+        </div>
+    </header>
+
+    <!-- الواجهة الرئيسية -->
+    <main class="hero">
+        <span class="eyebrow">المظلة الرقمية للإعلام والثقافة والفن</span>
+        <h1 class="hero-title-en">RAWI-YE</h1>
+        <h2 class="hero-title-ar">نصنع المعيار الجديد للذاكرة الثقافية والفنية</h2>
+        <p class="hero-desc">
+            مؤسسة رقمية حاضنة تُعيد صياغة المشهد الثقافي والإعلامي عبر منظومة متكاملة تجمع بين <strong>تقييم وتوثيق الأعمال الإبداعية</strong>، الصحافة المستقلة، والأرشفة المعرفية الرصينة، مع تركيزٍ جوهري على إبراز وتأصيل الإنتاج الفكري والفني في <strong>الساحة اليمنية</strong>.
+        </p>
+
+        <div class="launch-frame">
+            <div class="launch-header">
+                <span>مرحلة التجهيز الهندسي والمحتوى المرجعي</span>
+                <strong>82%</strong>
+            </div>
+            <div class="progress-track">
+                <div class="progress-bar"></div>
+            </div>
+        </div>
+    </main>
+
+    <!-- قسم المنصة المركزية لتقييم الأعمال الفنية -->
+    <section>
+        <div class="spotlight-box">
+            <span class="section-tag">القلب النابض للمؤسسة • قريباً بإذن الله</span>
+            <h2 class="section-title" style="margin-bottom: 1.2rem;">المنصة المرجعية لتقييم الأعمال الفنية والأدبية</h2>
+            <p style="color: var(--text-muted); max-width: 850px; font-size: 1.05rem;">
+                نعمل حالياً على بناء أول قاعدة بيانات ومنصة تقييم نقدية وجماهيرية من نوعها، مصممة لتكون المرجع الأول لتقييم وتوثيق الإبداع في الساحة اليمنية والعربية بمعايير عالمية تحفظ قيمة الأثر وصُنّاعه.
+            </p>
+
+            <div class="pillars-grid">
+                <div class="pillar-item">
+                    <span class="pillar-icon">✦</span>
+                    <h4>المؤلفون والإصدارات</h4>
+                    <p>توثيق شامل للروائيين والكتّاب، مع مراجعات وتقييمات منهجية للروايات والكتب الفكرية والأدبية.</p>
+                </div>
+                <div class="pillar-item">
+                    <span class="pillar-icon">🎬</span>
+                    <h4>المسلسلات والدراما</h4>
+                    <p>أرشفة وتقييم الأعمال الدرامية التلفزيونية، وتحليل الأداء، السيناريو، والإخراج برؤية نقدية وجماهيرية.</p>
+                </div>
+                <div class="pillar-item">
+                    <span class="pillar-icon">🎞️</span>
+                    <h4>الأفلام والسينما</h4>
+                    <p>منصة خاصة لتسليط الضوء على الأفلام الروائية والوثائقية والقصيرة، وإبراز التجارب السينمائية اليمنية.</p>
+                </div>
+                <div class="pillar-item">
+                    <span class="pillar-icon">⚖️</span>
+                    <h4>مؤشر الساحة اليمنية</h4>
+                    <p>معيار تقييم دقيق يجمع بين آراء النقاد المتخصصين وتصويت الجمهور لإنصاف الأعمال المحلية والعربية.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم الكيانات والمؤسسات التابعة -->
+    <section>
+        <div class="section-header">
+            <span class="section-tag">المنظومة الرقمية</span>
+            <h2 class="section-title">الكيانات المنضوية تحت مظلة RAWI-YE</h2>
+        </div>
+
+        <div class="entities-grid">
+            <!-- الكيان الأول -->
+            <div class="entity-card">
+                <div>
+                    <div class="entity-number">01</div>
+                    <span class="entity-badge">قطاع الصحافة والإعلام الرقمي</span>
+                    <h3>شبكة البوصلة</h3>
+                    <p>
+                        منصة إعلامية وصحفية تواكب الحدث بدقة وموضوعية، تقدم التقارير المعمقة، التغطيات الإخبارية، والتحليلات التي تضع القارئ في قلب الصورة بعيداً عن التشتيت.
+                    </p>
+                </div>
+                <div class="entity-footer">
+                    <span>إحدى مؤسسات RAWI-YE</span>
+                    <span>قريباً ←</span>
+                </div>
+            </div>
+
+            <!-- الكيان الثاني -->
+            <div class="entity-card">
+                <div>
+                    <div class="entity-number">02</div>
+                    <span class="entity-badge">قطاع الأرشفة والتوثيق الثقافي</span>
+                    <h3>مكتبة وموسوعة الحجرية</h3>
+                    <p>
+                        صرحٌ معرفي وموسوعي رقمي يُعنى بجمع وتوثيق التراث الثقافي، التاريخي، والأدبي، وإتاحة المخطوطات والكتب والسير الذاتية للأجيال والباحثين في قالب رقمي حديث.
+                    </p>
+                </div>
+                <div class="entity-footer">
+                    <span>إحدى مؤسسات RAWI-YE</span>
+                    <span>قريباً ←</span>
+                </div>
+            </div>
+
+            <!-- الكيان الثالث -->
+            <div class="entity-card">
+                <div>
+                    <div class="entity-number">03</div>
+                    <span class="entity-badge">التوسع المستقبلي</span>
+                    <h3>مشاريع ومنصات قادمة</h3>
+                    <p>
+                        سلسلة من المبادرات الرقمية والمنصات التخصصية قيد الابتكار والتطوير داخل مختبرات المؤسسة، سيتم الكشف عنها تباعاً لتعزيز المحتوى العربي واليمني على الإنترنت.
+                    </p>
+                </div>
+                <div class="entity-footer">
+                    <span>مختبرات التطوير</span>
+                    <span>قيد الإنشاء ←</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- التذييل -->
+    <footer>
+        <div class="footer-logo">RAWI-YE.COM</div>
+        <p class="footer-text">جميع الحقوق محفوظة © 2026 مؤسسة RAWI-YE الرقمية والكيانات التابعة لها.</p>
+    </footer>
+
+    <!-- كود جافاسكريبت خفيف لحركة الإضاءة التفاعلية -->
+    <script>
+        const glow = document.getElementById('cursorGlow');
+        document.addEventListener('mousemove', (e) => {
+            glow.style.left = e.clientX + 'px';
+            glow.style.top = e.clientY + 'px';
+        });
+    </script>
+</body>
+</html>
