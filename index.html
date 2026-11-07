@@ -3,589 +3,1259 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RAWI-YE | المؤسسة الرقمية للإعلام والثقافة والنقد الفني</title>
-    <meta name="description" content="المظلة الرقمية الرائدة لتوثيق وتقييم الأعمال الفنية والأدبية والدرامية في الساحة اليمنية والعربية، والحاضنة لكل من شبكة البوصلة ومكتبة وموسوعة الحجرية.">
-    
-    <!-- إعدادات معاينة الرابط في واتساب وتويتر -->
-    <meta property="og:title" content="RAWI-YE | فجرٌ رقمي جديد للثقافة والفن">
-    <meta property="og:description" content="المؤسسة الرقمية الحاضنة للمنصات الثقافية والإعلامية والمرجع النقدي الأول للأعمال الفنية والأدبية.">
-    <meta property="og:url" content="https://rawi-ye.com">
-    <meta property="og:type" content="website">
-
-    <!-- استدعاء خطوط عربية وإنجليزية فاخرة من جوجل -->
+    <title>Rawi-ye | مؤسسة إعلامية رقمية</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;600;800;900&family=Cinzel:wght@600;800&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    
     <style>
         :root {
-            --bg-deep: #050507;
-            --bg-surface: rgba(18, 19, 24, 0.65);
-            --gold-primary: #d4af37;
-            --gold-light: #f3e5ab;
-            --gold-glow: rgba(212, 175, 55, 0.18);
-            --text-main: #f4f4f6;
-            --text-muted: #9496a1;
-            --border-subtle: rgba(255, 255, 255, 0.07);
-            --border-gold: rgba(212, 175, 55, 0.35);
+            /* متغيرات دورة الزمن (تتغير ديناميكياً كل 5 ثوانٍ) - البداية: نهار مشرق */
+            --sky-top: #1e90ff;
+            --sky-mid: #63b8ff;
+            --sky-bottom: #b9e8ff;
+            --sun-opacity: 1;
+            --sun-y: 12%;
+            --sun-x: 18%;
+            --moon-opacity: 0;
+            --moon-y: 80%;
+            --stars-opacity: 0;
+            --clouds-opacity: 0.92;
+            --birds-opacity: 0.85;
+            --mountain-far: #5c8ab8;
+            --mountain-mid: #3f6a96;
+            --mountain-near: #284b70;
+            --house-body: #8c583a;
+            --house-shadow: #6e4228;
+            --gypsum-color: #ffffff;
+            --window-glow: rgba(255, 245, 200, 0.25);
+            --qamariya-glow: 0.2;
+            
+            /* متغيرات اللوحة الزجاجية لتتكيف مع النهار والليل */
+            --glass-bg: rgba(255, 255, 255, 0.68);
+            --glass-border: rgba(255, 255, 255, 0.85);
+            --glass-shadow: rgba(18, 52, 86, 0.18);
+            --text-primary: #0f2537;
+            --text-secondary: #34536b;
+            --card-item-bg: rgba(255, 255, 255, 0.75);
+            --card-item-hover: rgba(255, 255, 255, 0.95);
+            --accent-primary: #0066cc;
+            --accent-secondary: #d97706;
+        }
+
+        /* طور الشروق */
+        body.phase-dawn {
+            --sky-top: #3a6073;
+            --sky-mid: #f09819;
+            --sky-bottom: #ffde8a;
+            --sun-opacity: 0.95;
+            --sun-y: 55%;
+            --sun-x: 80%;
+            --moon-opacity: 0;
+            --moon-y: 90%;
+            --stars-opacity: 0.15;
+            --clouds-opacity: 0.75;
+            --birds-opacity: 0.6;
+            --mountain-far: #7d6885;
+            --mountain-mid: #5b4866;
+            --mountain-near: #3d2f47;
+            --house-body: #75442b;
+            --house-shadow: #542f1c;
+            --window-glow: rgba(255, 200, 100, 0.5);
+            --qamariya-glow: 0.5;
+            --glass-bg: rgba(255, 250, 242, 0.68);
+            --glass-border: rgba(255, 255, 255, 0.8);
+            --text-primary: #2b1810;
+            --text-secondary: #5c3b28;
+            --card-item-bg: rgba(255, 255, 255, 0.72);
+            --accent-primary: #c2410c;
+        }
+
+        /* طور النهار الصيفي المشرق */
+        body.phase-day {
+            --sky-top: #0ea5e9;
+            --sky-mid: #38bdf8;
+            --sky-bottom: #bae6fd;
+            --sun-opacity: 1;
+            --sun-y: 12%;
+            --sun-x: 18%;
+            --moon-opacity: 0;
+            --moon-y: 90%;
+            --stars-opacity: 0;
+            --clouds-opacity: 0.95;
+            --birds-opacity: 0.9;
+            --mountain-far: #6495ed;
+            --mountain-mid: #4169e1;
+            --mountain-near: #1e3a8a;
+            --house-body: #9a5b37;
+            --house-shadow: #784223;
+            --window-glow: rgba(255, 255, 255, 0.3);
+            --qamariya-glow: 0.25;
+            --glass-bg: rgba(255, 255, 255, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.9);
+            --text-primary: #0f172a;
+            --text-secondary: #334155;
+            --card-item-bg: rgba(255, 255, 255, 0.8);
+            --accent-primary: #0284c7;
+        }
+
+        /* طور الغروب اليمني الدافئ */
+        body.phase-sunset {
+            --sky-top: #1e1b4b;
+            --sky-mid: #be185d;
+            --sky-bottom: #f97316;
+            --sun-opacity: 0.95;
+            --sun-y: 62%;
+            --sun-x: 15%;
+            --moon-opacity: 0.2;
+            --moon-y: 35%;
+            --stars-opacity: 0.4;
+            --clouds-opacity: 0.65;
+            --birds-opacity: 0.5;
+            --mountain-far: #581c87;
+            --mountain-mid: #3b0764;
+            --mountain-near: #2e1065;
+            --house-body: #5c2d16;
+            --house-shadow: #3d1b0a;
+            --window-glow: rgba(255, 190, 60, 0.85);
+            --qamariya-glow: 0.85;
+            --glass-bg: rgba(255, 245, 238, 0.65);
+            --glass-border: rgba(255, 220, 200, 0.75);
+            --text-primary: #27120b;
+            --text-secondary: #572b1c;
+            --card-item-bg: rgba(255, 250, 245, 0.78);
+            --accent-primary: #be185d;
+        }
+
+        /* طور الليل والنجوم وإضاءة القمريات */
+        body.phase-night {
+            --sky-top: #060b19;
+            --sky-mid: #0f172a;
+            --sky-bottom: #1e293b;
+            --sun-opacity: 0;
+            --sun-y: 100%;
+            --sun-x: 50%;
+            --moon-opacity: 1;
+            --moon-y: 14%;
+            --stars-opacity: 1;
+            --clouds-opacity: 0.2;
+            --birds-opacity: 0;
+            --mountain-far: #1e293b;
+            --mountain-mid: #0f172a;
+            --mountain-near: #090d16;
+            --house-body: #3b2316;
+            --house-shadow: #24140b;
+            --window-glow: #ffbf3c;
+            --qamariya-glow: 1;
+            --glass-bg: rgba(15, 23, 42, 0.68);
+            --glass-border: rgba(255, 255, 255, 0.22);
+            --text-primary: #f8fafc;
+            --text-secondary: #cbd5e1;
+            --card-item-bg: rgba(30, 41, 59, 0.75);
+            --card-item-hover: rgba(51, 65, 85, 0.92);
+            --accent-primary: #38bdf8;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            background-color: var(--bg-deep);
-            color: var(--text-main);
-            font-family: 'Alexandria', sans-serif;
-            overflow-x: hidden;
-            line-height: 1.8;
+        body, html {
+            width: 100%;
+            height: 100%;
+            font-family: 'Cairo', 'Tajawal', sans-serif;
+            overflow: hidden;
             position: relative;
+            user-select: none;
         }
 
-        /* خلفية الشبكة السينمائية والإضاءة التفاعلية */
-        .ambient-bg {
+        /* خلفية السماء المتغيرة بنعومة */
+        .sky-backdrop {
             position: fixed;
             inset: 0;
-            z-index: -2;
-            background: 
-                radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.12) 0%, transparent 60%),
-                radial-gradient(circle at 10% 80%, rgba(30, 45, 85, 0.15) 0%, transparent 50%),
-                var(--bg-deep);
+            background: linear-gradient(180deg, var(--sky-top) 0%, var(--sky-mid) 55%, var(--sky-bottom) 100%);
+            transition: background 2.5s ease-in-out;
+            z-index: 0;
         }
 
-        .grid-overlay {
+        /* طبقة النجوم المتلألئة */
+        .stars-container {
             position: fixed;
             inset: 0;
-            z-index: -1;
-            background-image: 
-                linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px);
-            background-size: 60px 60px;
-            mask-image: radial-gradient(circle at center, black 30%, transparent 85%);
-            -webkit-mask-image: radial-gradient(circle at center, black 30%, transparent 85%);
-        }
-
-        .cursor-glow {
-            position: fixed;
-            width: 500px;
-            height: 500px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(212, 175, 55, 0.08) 0%, transparent 70%);
+            opacity: var(--stars-opacity);
+            transition: opacity 2.5s ease-in-out;
             pointer-events: none;
-            transform: translate(-50%, -50%);
-            z-index: -1;
-            transition: width 0.3s, height 0.3s;
+            z-index: 1;
         }
 
-        /* الشريط العلوي */
-        header {
+        .star {
+            position: absolute;
+            background: #ffffff;
+            border-radius: 50%;
+            box-shadow: 0 0 8px #ffffff, 0 0 14px #fde047;
+            animation: twinkle 3s infinite ease-in-out alternate;
+        }
+
+        @keyframes twinkle {
+            0% { transform: scale(0.6); opacity: 0.3; }
+            100% { transform: scale(1.2); opacity: 1; }
+        }
+
+        /* الشمس الكرتونية المتحركة */
+        .sun-wrapper {
+            position: fixed;
+            top: var(--sun-y);
+            left: var(--sun-x);
+            opacity: var(--sun-opacity);
+            transition: top 2.8s cubic-bezier(0.4, 0, 0.2, 1), left 2.8s ease, opacity 2s ease;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .cartoon-sun {
+            width: 95px;
+            height: 95px;
+            background: radial-gradient(circle, #fffbeb 10%, #fde047 50%, #f59e0b 100%);
+            border-radius: 50%;
+            box-shadow: 0 0 50px rgba(251, 191, 36, 0.8), 0 0 100px rgba(245, 158, 11, 0.4);
+            position: relative;
+            animation: pulseSun 4s infinite ease-in-out;
+        }
+
+        .sun-rays {
+            position: absolute;
+            inset: -22px;
+            border-radius: 50%;
+            border: 4px dashed rgba(254, 240, 138, 0.65);
+            animation: spinRays 24s linear infinite;
+        }
+
+        @keyframes pulseSun {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.07); }
+        }
+
+        @keyframes spinRays {
+            100% { transform: rotate(360deg); }
+        }
+
+        /* القمر الهلالي في الليل */
+        .moon-wrapper {
+            position: fixed;
+            top: var(--moon-y);
+            right: 16%;
+            opacity: var(--moon-opacity);
+            transition: top 2.8s cubic-bezier(0.4, 0, 0.2, 1), opacity 2s ease;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .cartoon-moon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            box-shadow: -18px 10px 0 0 #fef08a, -18px 10px 35px rgba(254, 240, 138, 0.6);
+            transform: rotate(-15deg);
+            animation: floatMoon 5s ease-in-out infinite;
+        }
+
+        @keyframes floatMoon {
+            0%, 100% { transform: translateY(0) rotate(-15deg); }
+            50% { transform: translateY(-8px) rotate(-12deg); }
+        }
+
+        /* السحب الكرتونية المتحركة */
+        .clouds-layer {
+            position: fixed;
+            inset: 0;
+            opacity: var(--clouds-opacity);
+            transition: opacity 2.5s ease;
+            z-index: 3;
+            pointer-events: none;
+        }
+
+        .cloud {
+            position: absolute;
+            background: #ffffff;
+            border-radius: 100px;
+            filter: drop-shadow(0 8px 15px rgba(0, 0, 0, 0.08));
+        }
+
+        .cloud::before, .cloud::after {
+            content: '';
+            position: absolute;
+            background: #ffffff;
+            border-radius: 50%;
+        }
+
+        .cloud-1 {
+            width: 150px;
+            height: 48px;
+            top: 14%;
+            left: -180px;
+            animation: moveCloud 38s linear infinite;
+        }
+        .cloud-1::before { width: 65px; height: 65px; top: -32px; left: 22px; }
+        .cloud-1::after { width: 80px; height: 80px; top: -42px; right: 22px; }
+
+        .cloud-2 {
+            width: 110px;
+            height: 36px;
+            top: 26%;
+            left: -140px;
+            transform: scale(0.85);
+            animation: moveCloud 52s linear infinite 12s;
+        }
+        .cloud-2::before { width: 50px; height: 50px; top: -25px; left: 15px; }
+        .cloud-2::after { width: 60px; height: 60px; top: -30px; right: 15px; }
+
+        .cloud-3 {
+            width: 180px;
+            height: 54px;
+            top: 8%;
+            left: -220px;
+            opacity: 0.85;
+            animation: moveCloud 45s linear infinite 24s;
+        }
+        .cloud-3::before { width: 75px; height: 75px; top: -38px; left: 30px; }
+        .cloud-3::after { width: 90px; height: 90px; top: -46px; right: 28px; }
+
+        @keyframes moveCloud {
+            0% { transform: translateX(-200px); }
+            100% { transform: translateX(calc(100vw + 400px)); }
+        }
+
+        /* أسراب الطيور الكرتونية */
+        .birds-layer {
+            position: fixed;
+            top: 20%;
+            left: -100px;
+            opacity: var(--birds-opacity);
+            transition: opacity 2s ease;
+            z-index: 3;
+            pointer-events: none;
+            animation: flyAcross 28s linear infinite;
+        }
+
+        @keyframes flyAcross {
+            0% { transform: translate(-100px, 20px) scale(0.9); }
+            50% { transform: translate(50vw, -25px) scale(1.05); }
+            100% { transform: translate(calc(100vw + 150px), 10px) scale(0.9); }
+        }
+
+        /* المشهد المعماري والطبيعي اليمني (SVG) */
+        .yemeni-landscape {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 46vh;
+            min-height: 290px;
+            z-index: 4;
+            pointer-events: none;
+        }
+
+        .landscape-svg {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        /* تفاعلات الألوان داخل رسم الـ SVG */
+        .mtn-far { fill: var(--mountain-far); transition: fill 2.5s ease; }
+        .mtn-mid { fill: var(--mountain-mid); transition: fill 2.5s ease; }
+        .mtn-near { fill: var(--mountain-near); transition: fill 2.5s ease; }
+        .house-wall { fill: var(--house-body); transition: fill 2.5s ease; }
+        .house-side { fill: var(--house-shadow); transition: fill 2.5s ease; }
+        .gypsum-trim { fill: var(--gypsum-color); }
+        .yemeni-window { fill: var(--window-glow); transition: fill 2.5s ease; }
+        .qamariya-glass { opacity: var(--qamariya-glow); transition: opacity 2.5s ease; }
+
+        /* شريط التحكم العلوي بدورة الليل والنهار */
+        .time-controller {
+            position: fixed;
+            top: 18px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 20;
+            background: var(--glass-bg);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid var(--glass-border);
+            padding: 6px 14px;
+            border-radius: 50px;
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            padding: 1.8rem 7%;
-            border-bottom: 1px solid var(--border-subtle);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            background: rgba(5, 5, 7, 0.7);
+            gap: 8px;
+            box-shadow: 0 8px 25px var(--glass-shadow);
+            transition: all 0.5s ease;
         }
 
-        .brand-logo {
-            font-family: 'Cinzel', serif;
-            font-size: 1.7rem;
+        .time-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 0.82rem;
+            font-weight: 700;
+            padding: 5px 12px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .time-btn.active {
+            background: var(--accent-primary);
+            color: #ffffff;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .time-btn:hover:not(.active) {
+            background: rgba(128, 128, 128, 0.15);
+        }
+
+        /* الحاوية الرئيسية للمركز */
+        .main-stage {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 70px 20px 40px;
+        }
+
+        /* اللوحة الزجاجية المركزية */
+        .glass-launchpad {
+            position: relative;
+            background: var(--glass-bg);
+            backdrop-filter: blur(22px) saturate(160%);
+            -webkit-backdrop-filter: blur(22px) saturate(160%);
+            border: 1.5px solid var(--glass-border);
+            border-radius: 30px;
+            padding: 42px 38px;
+            max-width: 620px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 25px 60px var(--glass-shadow), inset 0 2px 4px rgba(255, 255, 255, 0.5);
+            transition: background 1.5s ease, border-color 1.5s ease, color 1.5s ease, box-shadow 1.5s ease;
+            overflow: hidden;
+            animation: cardFloat 6s ease-in-out infinite;
+        }
+
+        @keyframes cardFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-7px); }
+        }
+
+        /* زخرفة القمرية اليمنية الدوارة خلف اللوحة الزجاجية */
+        .qamariya-watermark {
+            position: absolute;
+            top: -75px;
+            left: -75px;
+            width: 240px;
+            height: 240px;
+            opacity: 0.11;
+            pointer-events: none;
+            animation: rotateSlow 45s linear infinite;
+        }
+
+        @keyframes rotateSlow {
+            100% { transform: rotate(360deg); }
+        }
+
+        /* شارة حالة المؤسسة */
+        .org-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--card-item-bg);
+            border: 1px solid var(--glass-border);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+        }
+
+        .pulse-dot {
+            width: 9px;
+            height: 9px;
+            background: #10b981;
+            border-radius: 50%;
+            box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+            animation: pulseGreen 2s infinite;
+        }
+
+        @keyframes pulseGreen {
+            0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+            70% { box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+        }
+
+        .brand-name {
+            font-size: 3.1rem;
+            font-weight: 900;
+            color: var(--text-primary);
+            letter-spacing: -0.5px;
+            line-height: 1.1;
+            margin-bottom: 6px;
+            transition: color 1.5s ease;
+        }
+
+        .brand-name span {
+            color: var(--accent-primary);
+            transition: color 1.5s ease;
+        }
+
+        .brand-subtitle {
+            font-size: 1.15rem;
             font-weight: 800;
-            letter-spacing: 4px;
-            background: linear-gradient(135deg, #fff 0%, var(--gold-primary) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: var(--accent-secondary);
+            margin-bottom: 16px;
+        }
+
+        /* فاصل زخرفي يمني */
+        .yemeni-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin: 14px auto 20px;
+            width: 75%;
+        }
+
+        .divider-line {
+            flex: 1;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--text-secondary), transparent);
+            opacity: 0.35;
+        }
+
+        .divider-diamond {
+            width: 9px;
+            height: 9px;
+            background: var(--accent-primary);
+            transform: rotate(45deg);
+        }
+
+        .brand-description {
+            font-size: 1.03rem;
+            line-height: 1.75;
+            color: var(--text-secondary);
+            margin-bottom: 28px;
+            font-weight: 600;
+            transition: color 1.5s ease;
+        }
+
+        .projects-heading {
+            font-size: 0.9rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            opacity: 0.9;
+        }
+
+        /* أزرار المشاريع الرئيسية */
+        .projects-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .project-trigger-btn {
+            width: 100%;
+            background: var(--card-item-bg);
+            border: 1.5px solid var(--glass-border);
+            border-radius: 18px;
+            padding: 18px 22px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            font-family: inherit;
+            text-align: right;
+            transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-trigger-btn:hover {
+            transform: translateY(-4px) scale(1.015);
+            background: var(--card-item-hover);
+            border-color: var(--accent-primary);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+        }
+
+        .project-trigger-btn:active {
+            transform: translateY(0) scale(0.99);
+        }
+
+        .btn-right-side {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .project-icon-box {
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .icon-press {
+            background: linear-gradient(135deg, #0284c7, #38bdf8);
+            color: #ffffff;
+            box-shadow: 0 6px 15px rgba(2, 132, 199, 0.3);
+        }
+
+        .icon-library {
+            background: linear-gradient(135deg, #d97706, #fbbf24);
+            color: #ffffff;
+            box-shadow: 0 6px 15px rgba(217, 119, 6, 0.3);
+        }
+
+        .project-btn-info h3 {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 2px;
+        }
+
+        .project-btn-info p {
+            font-size: 0.84rem;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+
+        .btn-left-side {
             display: flex;
             align-items: center;
             gap: 10px;
         }
 
         .status-pill {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 0.45rem 1.1rem;
-            border-radius: 50px;
-            background: rgba(212, 175, 55, 0.08);
-            border: 1px solid var(--border-gold);
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: var(--gold-light);
+            padding: 5px 12px;
+            border-radius: 30px;
+            font-size: 0.78rem;
+            font-weight: 800;
+            white-space: nowrap;
         }
 
-        .pulse-dot {
-            width: 8px;
-            height: 8px;
-            background-color: var(--gold-primary);
-            border-radius: 50%;
-            box-shadow: 0 0 12px var(--gold-primary);
-            animation: pulse 2s infinite;
+        .pill-live {
+            background: rgba(16, 185, 129, 0.16);
+            color: #059669;
+            border: 1px solid rgba(16, 185, 129, 0.35);
         }
 
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.5); opacity: 0.4; }
+        body.phase-night .pill-live {
+            color: #34d399;
         }
 
-        /* القسم الرئيسي Hero */
-        .hero {
-            min-height: 88vh;
+        .pill-soon {
+            background: rgba(245, 158, 11, 0.16);
+            color: #b45309;
+            border: 1px solid rgba(245, 158, 11, 0.35);
+        }
+
+        body.phase-night .pill-soon {
+            color: #fbbf24;
+        }
+
+        .arrow-indicator {
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .project-trigger-btn:hover .arrow-indicator {
+            transform: translateX(-5px);
+            color: var(--accent-primary);
+        }
+
+        /* النوافذ المنبثقة (Modals) لتفاصيل كل مشروع */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 100;
+            background: rgba(6, 15, 30, 0.55);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
-            text-align: center;
-            padding: 4rem 7%;
-            position: relative;
-        }
-
-        .eyebrow {
-            font-size: 0.85rem;
-            letter-spacing: 2px;
-            color: var(--gold-primary);
-            font-weight: 600;
-            margin-bottom: 1.2rem;
-            display: inline-block;
-            padding: 0.3rem 1rem;
-            border-right: 2px solid var(--gold-primary);
-            border-left: 2px solid var(--gold-primary);
-            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.08), transparent);
-        }
-
-        .hero-title-en {
-            font-family: 'Cinzel', serif;
-            font-size: clamp(3rem, 9vw, 6.5rem);
-            font-weight: 800;
-            letter-spacing: 8px;
-            line-height: 1.05;
-            margin-bottom: 1rem;
-            background: linear-gradient(180deg, #ffffff 20%, #a8a8b3 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 20px 50px rgba(0,0,0,0.8);
-        }
-
-        .hero-title-ar {
-            font-size: clamp(1.4rem, 3.5vw, 2.3rem);
-            font-weight: 800;
-            color: var(--gold-light);
-            margin-bottom: 1.8rem;
-        }
-
-        .hero-desc {
-            max-width: 780px;
-            font-size: clamp(1rem, 1.8vw, 1.2rem);
-            color: var(--text-muted);
-            font-weight: 300;
-            margin-bottom: 3rem;
-        }
-
-        .hero-desc strong {
-            color: var(--text-main);
-            font-weight: 600;
-        }
-
-        /* مؤشر الإطلاق */
-        .launch-frame {
-            background: var(--bg-surface);
-            border: 1px solid var(--border-gold);
-            padding: 1.8rem 2.5rem;
-            border-radius: 20px;
-            backdrop-filter: blur(20px);
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6), inset 0 0 25px rgba(212, 175, 55, 0.05);
-            max-width: 600px;
-            width: 100%;
-        }
-
-        .launch-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 0.8rem;
-            font-size: 0.9rem;
-            color: var(--gold-light);
-        }
-
-        .progress-track {
-            width: 100%;
-            height: 6px;
-            background: rgba(255, 255, 255, 0.06);
-            border-radius: 10px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .progress-bar {
-            width: 82%;
-            height: 100%;
-            background: linear-gradient(90deg, #8a6d1b, var(--gold-primary), #fff);
-            border-radius: 10px;
-            position: relative;
-            animation: shimmer 3s infinite linear;
-        }
-
-        @keyframes shimmer {
-            0% { filter: brightness(1); }
-            50% { filter: brightness(1.35); }
-            100% { filter: brightness(1); }
-        }
-
-        /* الأقسام الداخلية */
-        section {
-            padding: 5.5rem 7%;
-            max-width: 1350px;
-            margin: 0 auto;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .section-tag {
-            color: var(--gold-primary);
-            font-size: 0.85rem;
-            font-weight: 600;
-            letter-spacing: 1.5px;
-            display: block;
-            margin-bottom: 0.5rem;
-        }
-
-        .section-title {
-            font-size: clamp(1.8rem, 3.5vw, 2.6rem);
-            font-weight: 800;
-        }
-
-        /* قسم منصة النقد والتقييم الفني */
-        .spotlight-box {
-            background: linear-gradient(145deg, rgba(24, 25, 32, 0.85), rgba(10, 10, 14, 0.95));
-            border: 1px solid var(--border-gold);
-            border-radius: 28px;
-            padding: clamp(2rem, 5vw, 4rem);
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 30px 80px rgba(0,0,0,0.7);
-        }
-
-        .spotlight-box::before {
-            content: "RAWI CRITICS";
-            position: absolute;
-            left: -20px;
-            bottom: -30px;
-            font-family: 'Cinzel', serif;
-            font-size: clamp(4rem, 10vw, 8rem);
-            font-weight: 900;
-            color: rgba(255, 255, 255, 0.02);
-            pointer-events: none;
-            user-select: none;
-        }
-
-        .pillars-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2.8rem;
-        }
-
-        .pillar-item {
-            background: rgba(255, 255, 255, 0.025);
-            border: 1px solid var(--border-subtle);
-            padding: 1.6rem;
-            border-radius: 18px;
+            padding: 20px;
+            opacity: 0;
+            visibility: hidden;
             transition: all 0.35s ease;
         }
 
-        .pillar-item:hover {
-            border-color: var(--gold-primary);
-            transform: translateY(-5px);
-            background: rgba(212, 175, 55, 0.05);
+        .modal-overlay.open {
+            opacity: 1;
+            visibility: visible;
         }
 
-        .pillar-icon {
-            font-size: 1.6rem;
-            margin-bottom: 0.8rem;
-            display: inline-block;
-            color: var(--gold-primary);
-        }
-
-        .pillar-item h4 {
-            font-size: 1.15rem;
-            margin-bottom: 0.5rem;
-            color: #fff;
-        }
-
-        .pillar-item p {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-        }
-
-        /* بطاقات الكيانات التابعة */
-        .entities-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
-            gap: 2rem;
-        }
-
-        .entity-card {
-            background: var(--bg-surface);
-            border: 1px solid var(--border-subtle);
-            border-radius: 24px;
-            padding: 2.5rem;
+        .modal-glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(28px) saturate(180%);
+            -webkit-backdrop-filter: blur(28px) saturate(180%);
+            border: 1.5px solid var(--glass-border);
+            border-radius: 28px;
+            max-width: 520px;
+            width: 100%;
+            padding: 36px 32px 30px;
             position: relative;
-            overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            backdrop-filter: blur(12px);
+            text-align: center;
+            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.35);
+            transform: scale(0.88) translateY(20px);
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            color: var(--text-primary);
         }
 
-        .entity-card:hover {
-            border-color: var(--gold-primary);
-            transform: translateY(-8px);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 30px var(--gold-glow);
+        .modal-overlay.open .modal-glass-card {
+            transform: scale(1) translateY(0);
         }
 
-        .entity-number {
-            font-family: 'Cinzel', serif;
-            font-size: 3rem;
-            font-weight: 800;
-            color: rgba(212, 175, 55, 0.15);
-            line-height: 1;
-            margin-bottom: 1rem;
-        }
-
-        .entity-badge {
-            display: inline-block;
-            font-size: 0.75rem;
-            padding: 0.3rem 0.85rem;
-            border-radius: 50px;
-            background: rgba(255, 255, 255, 0.05);
-            color: var(--gold-light);
-            margin-bottom: 1.2rem;
-            width: fit-content;
-            border: 1px solid rgba(255,255,255,0.08);
-        }
-
-        .entity-card h3 {
-            font-size: 1.55rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            color: #fff;
-        }
-
-        .entity-card p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            margin-bottom: 2rem;
-        }
-
-        .entity-footer {
+        .modal-close-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            border: 1px solid var(--glass-border);
+            background: var(--card-item-bg);
+            color: var(--text-primary);
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            padding-top: 1.2rem;
-            border-top: 1px solid var(--border-subtle);
+            justify-content: center;
+            transition: all 0.25s ease;
+        }
+
+        .modal-close-btn:hover {
+            background: #ef4444;
+            color: #ffffff;
+            border-color: #ef4444;
+            transform: rotate(90deg);
+        }
+
+        .modal-qamariya-arch {
+            width: 86px;
+            height: 86px;
+            margin: 0 auto 16px;
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.4rem;
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        .modal-title {
+            font-size: 1.75rem;
+            font-weight: 900;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+
+        .modal-category-tag {
+            display: inline-block;
             font-size: 0.85rem;
-            color: var(--gold-primary);
+            font-weight: 700;
+            padding: 4px 14px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+        }
+
+        .modal-desc-box {
+            background: var(--card-item-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 18px;
+            padding: 20px;
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
             font-weight: 600;
+            margin-bottom: 22px;
+            text-align: justify;
+            text-align-last: center;
         }
 
-        /* التذييل Footer */
-        footer {
-            border-top: 1px solid var(--border-subtle);
-            padding: 3.5rem 7%;
-            text-align: center;
-            background: rgba(3, 3, 5, 0.9);
-            margin-top: 4rem;
+        .modal-features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 26px;
         }
 
-        .footer-logo {
-            font-family: 'Cinzel', serif;
-            font-size: 1.5rem;
+        .feature-chip {
+            background: var(--card-item-bg);
+            border: 1px solid var(--glass-border);
+            padding: 5px 13px;
+            border-radius: 12px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        /* زر زيارة الموقع داخل نافذة الحجرية برس */
+        .visit-project-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            padding: 16px 28px;
+            background: linear-gradient(135deg, #0284c7 0%, #2563eb 100%);
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1.1rem;
             font-weight: 800;
-            letter-spacing: 4px;
-            color: var(--gold-primary);
-            margin-bottom: 0.8rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.35);
+            transition: all 0.3s ease;
         }
 
-        .footer-text {
-            color: var(--text-muted);
-            font-size: 0.85rem;
+        .visit-project-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(37, 99, 235, 0.5);
+            filter: brightness(1.08);
         }
 
-        /* التجاوب مع الجوال */
-        @media (max-width: 768px) {
-            header {
-                padding: 1.2rem 5%;
+        /* لافتة الترقب داخل نافذة الموسوعة */
+        .soon-banner-box {
+            width: 100%;
+            padding: 16px 22px;
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(217, 119, 6, 0.25));
+            border: 1.5px dashed #f59e0b;
+            border-radius: 16px;
+            color: var(--text-primary);
+            font-weight: 800;
+            font-size: 1.05rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        /* تجاوب الشاشات للهواتف */
+        @media (max-width: 600px) {
+            .time-controller {
+                top: 12px;
+                padding: 5px 10px;
+                gap: 4px;
+                width: 92%;
+                justify-content: space-around;
             }
-            .brand-logo {
-                font-size: 1.3rem;
+            .time-btn {
+                font-size: 0.74rem;
+                padding: 4px 8px;
             }
-            .status-pill {
-                font-size: 0.7rem;
-                padding: 0.35rem 0.8rem;
+            .glass-launchpad {
+                padding: 30px 20px;
+                border-radius: 24px;
             }
-            .launch-frame {
-                padding: 1.3rem 1.5rem;
+            .brand-name {
+                font-size: 2.35rem;
             }
-            .entity-card {
-                padding: 1.8rem;
+            .brand-description {
+                font-size: 0.94rem;
+                margin-bottom: 20px;
+            }
+            .project-trigger-btn {
+                padding: 14px 16px;
+            }
+            .project-btn-info h3 {
+                font-size: 1.02rem;
+            }
+            .modal-glass-card {
+                padding: 28px 20px 24px;
             }
         }
     </style>
 </head>
-<body>
+<body class="phase-day">
 
-    <div class="ambient-bg"></div>
-    <div class="grid-overlay"></div>
-    <div class="cursor-glow" id="cursorGlow"></div>
+    <!-- 1. السماء الديناميكية -->
+    <div class="sky-backdrop"></div>
 
-    <!-- الشريط العلوي -->
-    <header>
-        <div class="brand-logo">RAWI-YE</div>
-        <div class="status-pill">
-            <span class="pulse-dot"></span>
-            <span>قيد التطوير النهائي • الإطلاق قريباً</span>
+    <!-- 2. النجوم المتلألئة (تظهر في المساء والليل) -->
+    <div class="stars-container" id="starsContainer"></div>
+
+    <!-- 3. الشمس الكرتونية المشرقة -->
+    <div class="sun-wrapper">
+        <div class="cartoon-sun">
+            <div class="sun-rays"></div>
         </div>
-    </header>
+    </div>
 
-    <!-- الواجهة الرئيسية -->
-    <main class="hero">
-        <span class="eyebrow">المظلة الرقمية للإعلام والثقافة والفن</span>
-        <h1 class="hero-title-en">RAWI-YE</h1>
-        <h2 class="hero-title-ar">نصنع المعيار الجديد للذاكرة الثقافية والفنية</h2>
-        <p class="hero-desc">
-            مؤسسة رقمية حاضنة تُعيد صياغة المشهد الثقافي والإعلامي عبر منظومة متكاملة تجمع بين <strong>تقييم وتوثيق الأعمال الإبداعية</strong>، الصحافة المستقلة، والأرشفة المعرفية الرصينة، مع تركيزٍ جوهري على إبراز وتأصيل الإنتاج الفكري والفني في <strong>الساحة اليمنية</strong>.
-        </p>
+    <!-- 4. القمر الهلالي المضيء -->
+    <div class="moon-wrapper">
+        <div class="cartoon-moon"></div>
+    </div>
 
-        <div class="launch-frame">
-            <div class="launch-header">
-                <span>مرحلة التجهيز الهندسي والمحتوى المرجعي</span>
-                <strong>82%</strong>
+    <!-- 5. السحب الكرتونية المتحركة -->
+    <div class="clouds-layer">
+        <div class="cloud cloud-1"></div>
+        <div class="cloud cloud-2"></div>
+        <div class="cloud cloud-3"></div>
+    </div>
+
+    <!-- 6. سرب الطيور المتحرك -->
+    <div class="birds-layer">
+        <svg width="110" height="50" viewBox="0 0 110 50" fill="none">
+            <path d="M10 25 Q20 10 30 25 Q40 10 50 25" stroke="#1e293b" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+            <path d="M55 15 Q63 4 71 15 Q79 4 87 15" stroke="#1e293b" stroke-width="2" stroke-linecap="round" fill="none"/>
+            <path d="M35 38 Q42 29 49 38 Q56 29 63 38" stroke="#1e293b" stroke-width="2" stroke-linecap="round" fill="none"/>
+        </svg>
+    </div>
+
+    <!-- 7. شريط التحكم بأطوار اليوم (تلقائي كل 5 ثوانٍ + تحكم يدوي) -->
+    <div class="time-controller" title="يتغير الجو تلقائياً كل 5 ثوانٍ، ويمكنك الاختيار يدوياً">
+        <button class="time-btn" data-phase="phase-dawn" onclick="manualSetPhase(0)">🌅 شروق</button>
+        <button class="time-btn active" data-phase="phase-day" onclick="manualSetPhase(1)">☀️ نهار</button>
+        <button class="time-btn" data-phase="phase-sunset" onclick="manualSetPhase(2)">🌇 غروب</button>
+        <button class="time-btn" data-phase="phase-night" onclick="manualSetPhase(3)">🌙 ليل</button>
+    </div>
+
+    <!-- 8. المنصة الزجاجية الرئيسية (Launchpad) -->
+    <main class="main-stage">
+        <section class="glass-launchpad">
+            <!-- نقش قمرية يمنية يدور في الخلفية الزجاجية -->
+            <svg class="qamariya-watermark" viewBox="0 0 200 200">
+                <g stroke="currentColor" stroke-width="3" fill="none">
+                    <circle cx="100" cy="100" r="90"/>
+                    <circle cx="100" cy="100" r="65"/>
+                    <circle cx="100" cy="100" r="35"/>
+                    <polygon points="100,10 125,75 190,100 125,125 100,190 75,125 10,100 75,75"/>
+                    <polygon points="100,10 125,75 190,100 125,125 100,190 75,125 10,100 75,75" transform="rotate(45 100 100)"/>
+                </g>
+            </svg>
+
+            <div class="org-badge">
+                <span class="pulse-dot"></span>
+                <span>الكيان الإعلامي الرقمي</span>
             </div>
-            <div class="progress-track">
-                <div class="progress-bar"></div>
-            </div>
-        </div>
-    </main>
 
-    <!-- قسم المنصة المركزية لتقييم الأعمال الفنية -->
-    <section>
-        <div class="spotlight-box">
-            <span class="section-tag">القلب النابض للمؤسسة • قريباً بإذن الله</span>
-            <h2 class="section-title" style="margin-bottom: 1.2rem;">المنصة المرجعية لتقييم الأعمال الفنية والأدبية</h2>
-            <p style="color: var(--text-muted); max-width: 850px; font-size: 1.05rem;">
-                نعمل حالياً على بناء أول قاعدة بيانات ومنصة تقييم نقدية وجماهيرية من نوعها، مصممة لتكون المرجع الأول لتقييم وتوثيق الإبداع في الساحة اليمنية والعربية بمعايير عالمية تحفظ قيمة الأثر وصُنّاعه.
+            <h1 class="brand-name" dir="ltr">Rawi<span>-ye</span></h1>
+            <div class="brand-subtitle">مؤسسة راوي الإعلامية الرقمية</div>
+
+            <div class="yemeni-divider">
+                <div class="divider-line"></div>
+                <div class="divider-diamond"></div>
+                <div class="divider-diamond" style="transform: rotate(45deg) scale(1.3); background: var(--accent-secondary);"></div>
+                <div class="divider-diamond"></div>
+                <div class="divider-line"></div>
+            </div>
+
+            <p class="brand-description">
+                مؤسسة إعلامية رقمية تتشكل لتعيد صياغة المشهد المعرفي والصحفي بهوية أصيلة ورؤية عالمية. بينما نضع اللمسات الأخيرة لإطلاق بوابتنا الأم، تواصل مشاريعنا التابعة نبضها في الفضاء الرقمي.
             </p>
 
-            <div class="pillars-grid">
-                <div class="pillar-item">
-                    <span class="pillar-icon">✦</span>
-                    <h4>المؤلفون والإصدارات</h4>
-                    <p>توثيق شامل للروائيين والكتّاب، مع مراجعات وتقييمات منهجية للروايات والكتب الفكرية والأدبية.</p>
-                </div>
-                <div class="pillar-item">
-                    <span class="pillar-icon">🎬</span>
-                    <h4>المسلسلات والدراما</h4>
-                    <p>أرشفة وتقييم الأعمال الدرامية التلفزيونية، وتحليل الأداء، السيناريو، والإخراج برؤية نقدية وجماهيرية.</p>
-                </div>
-                <div class="pillar-item">
-                    <span class="pillar-icon">🎞️</span>
-                    <h4>الأفلام والسينما</h4>
-                    <p>منصة خاصة لتسليط الضوء على الأفلام الروائية والوثائقية والقصيرة، وإبراز التجارب السينمائية اليمنية.</p>
-                </div>
-                <div class="pillar-item">
-                    <span class="pillar-icon">⚖️</span>
-                    <h4>مؤشر الساحة اليمنية</h4>
-                    <p>معيار تقييم دقيق يجمع بين آراء النقاد المتخصصين وتصويت الجمهور لإنصاف الأعمال المحلية والعربية.</p>
-                </div>
+            <div class="projects-heading">
+                <span>✦ استكشف منصاتنا ومشاريعنا التابعة ✦</span>
+            </div>
+
+            <div class="projects-grid">
+                <!-- الزر الأول: الحجرية برس -->
+                <button class="project-trigger-btn" onclick="openProjectModal('pressModal')">
+                    <div class="btn-right-side">
+                        <div class="project-icon-box icon-press">📰</div>
+                        <div class="project-btn-info">
+                            <h3>الحجرية برس</h3>
+                            <p>صحيفة ومنصة إخبارية شاملة • اضغط للتفاصيل</p>
+                        </div>
+                    </div>
+                    <div class="btn-left-side">
+                        <span class="status-pill pill-live">● نشط الآن</span>
+                        <span class="arrow-indicator">❮</span>
+                    </div>
+                </button>
+
+                <!-- الزر الثاني: موسوعة ومكتبة الحجرية -->
+                <button class="project-trigger-btn" onclick="openProjectModal('libraryModal')">
+                    <div class="btn-right-side">
+                        <div class="project-icon-box icon-library">🏛️</div>
+                        <div class="project-btn-info">
+                            <h3>موسوعة ومكتبة الحجرية</h3>
+                            <p>موسوعة ومكتبة حرة مفتوحة المصدر • اضغط للتفاصيل</p>
+                        </div>
+                    </div>
+                    <div class="btn-left-side">
+                        <span class="status-pill pill-soon">⏳ قريباً</span>
+                        <span class="arrow-indicator">❮</span>
+                    </div>
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <!-- 9. خلفية العمارة اليمنية المتحركة والجبال (SVG مرسوم بالكود) -->
+    <div class="yemeni-landscape">
+        <svg class="landscape-svg" viewBox="0 0 1440 420" preserveAspectRatio="none">
+            <!-- سلسلة الجبال البعيدة والوسطى (مستوحاة من جبال تعز والحجرية) -->
+            <path class="mtn-far" d="M0,420 L0,220 Q180,110 360,210 T750,170 T1120,220 T1440,160 L1440,420 Z"/>
+            <path class="mtn-mid" d="M0,420 L0,270 Q240,170 520,260 T980,210 T1440,250 L1440,420 Z"/>
+            <path class="mtn-near" d="M0,420 L0,330 Q380,260 720,320 T1440,290 L1440,420 Z"/>
+
+            <!-- مجموعة البيوت اليمنية التقليدية (الأبراج، الشرافات، حزام الجص، القمريات) -->
+            
+            <!-- البيت اليمني الأول (يمين) -->
+            <g transform="translate(1150, 145)">
+                <rect class="house-wall" x="0" y="30" width="130" height="245"/>
+                <rect class="house-side" x="130" y="30" width="35" height="245"/>
+                <!-- شرافات السطح اليمنية -->
+                <polygon class="gypsum-trim" points="0,30 10,12 20,30 32,12 44,30 56,12 68,30 80,12 92,30 104,12 116,30 130,12 130,30"/>
+                <!-- أحزمة الجص الأبيض -->
+                <rect class="gypsum-trim" x="0" y="30" width="165" height="6"/>
+                <rect class="gypsum-trim" x="0" y="95" width="165" height="5"/>
+                <rect class="gypsum-trim" x="0" y="165" width="165" height="5"/>
+                <!-- القمريات والنوافذ -->
+                <g transform="translate(22, 48)">
+                    <path class="gypsum-trim" d="M0,22 A16,16 0 0,1 32,22 Z"/>
+                    <path class="qamariya-glass" fill="#f59e0b" d="M3,20 A13,13 0 0,1 29,20 Z"/>
+                    <rect class="yemeni-window" x="2" y="24" width="28" height="16" stroke="#fff" stroke-width="2.5"/>
+                </g>
+                <g transform="translate(76, 48)">
+                    <path class="gypsum-trim" d="M0,22 A16,16 0 0,1 32,22 Z"/>
+                    <path class="qamariya-glass" fill="#38bdf8" d="M3,20 A13,13 0 0,1 29,20 Z"/>
+                    <rect class="yemeni-window" x="2" y="24" width="28" height="16" stroke="#fff" stroke-width="2.5"/>
+                </g>
+                <g transform="translate(22, 112)">
+                    <path class="gypsum-trim" d="M0,22 A16,16 0 0,1 32,22 Z"/>
+                    <path class="qamariya-glass" fill="#ec4899" d="M3,20 A13,13 0 0,1 29,20 Z"/>
+                    <rect class="yemeni-window" x="2" y="24" width="28" height="16" stroke="#fff" stroke-width="2.5"/>
+                </g>
+                <g transform="translate(76, 112)">
+                    <path class="gypsum-trim" d="M0,22 A16,16 0 0,1 32,22 Z"/>
+                    <path class="qamariya-glass" fill="#10b981" d="M3,20 A13,13 0 0,1 29,20 Z"/>
+                    <rect class="yemeni-window" x="2" y="24" width="28" height="16" stroke="#fff" stroke-width="2.5"/>
+                </g>
+            </g>
+
+            <!-- البيت اليمني الثاني (بجوار الأيمن) -->
+            <g transform="translate(970, 195)">
+                <rect class="house-wall" x="0" y="25" width="145" height="200"/>
+                <rect class="house-side" x="145" y="25" width="30" height="200"/>
+                <polygon class="gypsum-trim" points="0,25 12,10 24,25 36,10 48,25 60,10 72,25 84,10 96,25 108,10 120,25 132,10 145,25"/>
+                <rect class="gypsum-trim" x="0" y="25" width="175" height="5"/>
+                <rect class="gypsum-trim" x="0" y="90" width="175" height="5"/>
+                <!-- قمرية وسطى كبيرة -->
+                <g transform="translate(48, 42)">
+                    <path class="gypsum-trim" d="M0,26 A24,24 0 0,1 48,26 Z"/>
+                    <path class="qamariya-glass" fill="#fbbf24" d="M4,24 A20,20 0 0,1 44,24 Z"/>
+                    <rect class="yemeni-window" x="4" y="28" width="40" height="14" stroke="#fff" stroke-width="2.5"/>
+                </g>
+                <g transform="translate(25, 108)">
+                    <rect class="yemeni-window" x="0" y="0" width="26" height="24" stroke="#fff" stroke-width="2.5"/>
+                    <rect class="yemeni-window" x="68" y="0" width="26" height="24" stroke="#fff" stroke-width="2.5"/>
+                </g>
+            </g>
+
+            <!-- البيت اليمني الثالث (يسار، دار شاهقة) -->
+            <g transform="translate(110, 135)">
+                <rect class="house-wall" x="0" y="30" width="140" height="255"/>
+                <rect class="house-side" x="-30" y="30" width="30" height="255"/>
+                <polygon class="gypsum-trim" points="0,30 12,12 24,30 36,12 48,30 60,12 72,30 84,12 96,30 108,12 120,30 132,12 140,30"/>
+                <rect class="gypsum-trim" x="-30" y="30" width="170" height="6"/>
+                <rect class="gypsum-trim" x="-30" y="100" width="170" height="5"/>
+                <rect class="gypsum-trim" x="-30" y="170" width="170" height="5"/>
+                <!-- قمريات مضيئة -->
+                <g transform="translate(22, 48)">
+                    <path class="gypsum-trim" d="M0,22 A16,16 0 0,1 32,22 Z"/>
+                    <path class="qamariya-glass" fill="#f97316" d="M3,20 A13,13 0 0,1 29,20 Z"/>
+                    <rect class="yemeni-window" x="2" y="24" width="28" height="16" stroke="#fff" stroke-width="2.5"/>
+                </g>
+                <g transform="translate(84, 48)">
+                    <path class="gypsum-trim" d="M0,22 A16,16 0 0,1 32,22 Z"/>
+                    <path class="qamariya-glass" fill="#a855f7" d="M3,20 A13,13 0 0,1 29,20 Z"/>
+                    <rect class="yemeni-window" x="2" y="24" width="28" height="16" stroke="#fff" stroke-width="2.5"/>
+                </g>
+                <g transform="translate(22, 118)">
+                    <path class="gypsum-trim" d="M0,22 A16,16 0 0,1 32,22 Z"/>
+                    <path class="qamariya-glass" fill="#eab308" d="M3,20 A13,13 0 0,1 29,20 Z"/>
+                    <rect class="yemeni-window" x="2" y="24" width="28" height="16" stroke="#fff" stroke-width="2.5"/>
+                </g>
+                <g transform="translate(84, 118)">
+                    <path class="gypsum-trim" d="M0,22 A16,16 0 0,1 32,22 Z"/>
+                    <path class="qamariya-glass" fill="#06b6d4" d="M3,20 A13,13 0 0,1 29,20 Z"/>
+                    <rect class="yemeni-window" x="2" y="24" width="28" height="16" stroke="#fff" stroke-width="2.5"/>
+                </g>
+            </g>
+
+            <!-- البيت اليمني الرابع (يسار داخلي) -->
+            <g transform="translate(285, 205)">
+                <rect class="house-wall" x="0" y="25" width="125" height="190"/>
+                <polygon class="gypsum-trim" points="0,25 12,10 25,25 38,10 50,25 62,10 75,25 88,10 100,25 112,10 125,25"/>
+                <rect class="gypsum-trim" x="0" y="25" width="125" height="5"/>
+                <rect class="gypsum-trim" x="0" y="92" width="125" height="5"/>
+                <g transform="translate(42, 42)">
+                    <path class="gypsum-trim" d="M0,22 A20,20 0 0,1 40,22 Z"/>
+                    <path class="qamariya-glass" fill="#f59e0b" d="M3,20 A17,17 0 0,1 37,20 Z"/>
+                    <rect class="yemeni-window" x="4" y="24" width="32" height="14" stroke="#fff" stroke-width="2.5"/>
+                </g>
+            </g>
+        </svg>
+    </div>
+
+    <!-- 10. النافذة المنبثقة الأولى: تفاصيل مشروع الحجرية برس -->
+    <div class="modal-overlay" id="pressModal" onclick="closeModalOnOutsideClick(event, 'pressModal')">
+        <div class="modal-glass-card">
+            <button class="modal-close-btn" onclick="closeProjectModal('pressModal')" aria-label="إغلاق">✕</button>
+            
+            <div class="modal-qamariya-arch icon-press">📰</div>
+            <h2 class="modal-title">الحجرية برس</h2>
+            <span class="modal-category-tag pill-live">● منصة إخبارية نشطة</span>
+
+            <div class="modal-desc-box">
+                صحيفة ومنصة إخبارية رقمية شاملة تابعة لمؤسسة <strong>Rawi-ye</strong>. تنطلق برؤية صحفية معاصرة لتقديم تغطية إخبارية موثوقة، تقارير ميدانية معمقة، وتحليلات رصينة تواكب الأحداث على مدار الساعة بمهنية وموضوعية عالية.
+            </div>
+
+            <div class="modal-features">
+                <span class="feature-chip">⚡ أخبار وتغطيات مستمرة</span>
+                <span class="feature-chip">🔍 تقارير وتحليلات</span>
+                <span class="feature-chip">🌐 صحافة رقمية حديثة</span>
+            </div>
+
+            <a href="https://hujariyapress.rawi-ye.com" target="_blank" rel="noopener noreferrer" class="visit-project-btn">
+                <span>زيارة موقع الحجرية برس</span>
+                <span>↗</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- 11. النافذة المنبثقة الثانية: تفاصيل مشروع موسوعة ومكتبة الحجرية -->
+    <div class="modal-overlay" id="libraryModal" onclick="closeModalOnOutsideClick(event, 'libraryModal')">
+        <div class="modal-glass-card">
+            <button class="modal-close-btn" onclick="closeProjectModal('libraryModal')" aria-label="إغلاق">✕</button>
+            
+            <div class="modal-qamariya-arch icon-library">🏛️</div>
+            <h2 class="modal-title">موسوعة ومكتبة الحجرية</h2>
+            <span class="modal-category-tag pill-soon">⏳ مشروع معرفي قيد التجهيز</span>
+
+            <div class="modal-desc-box">
+                مكتبة وموسوعة حرة مفتوحة المصدر تابعة لمؤسسة <strong>Rawi-ye</strong>. يهدف هذا المشروع المعرفي إلى بناء أرشيف رقمي شامل ومفتوح يوثق التاريخ، الثقافة، الأدب، والعلوم، ويوفر للباحثين والقراء مصدراً معرفياً حراً ومتاحاً للجميع.
+            </div>
+
+            <div class="modal-features">
+                <span class="feature-chip">📖 مكتبة رقمية شاملة</span>
+                <span class="feature-chip">🔓 موسوعة حرة مفتوحة المصدر</span>
+                <span class="feature-chip">🏺 توثيق التراث والمعرفة</span>
+            </div>
+
+            <div class="soon-banner-box">
+                <span>✨</span>
+                <span>ترقبوا الإطلاق الرسمي قريباً</span>
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- قسم الكيانات والمؤسسات التابعة -->
-    <section>
-        <div class="section-header">
-            <span class="section-tag">المنظومة الرقمية</span>
-            <h2 class="section-title">الكيانات المنضوية تحت مظلة RAWI-YE</h2>
-        </div>
-
-        <div class="entities-grid">
-            <!-- الكيان الأول -->
-            <div class="entity-card">
-                <div>
-                    <div class="entity-number">01</div>
-                    <span class="entity-badge">قطاع الصحافة والإعلام الرقمي</span>
-                    <h3>شبكة البوصلة</h3>
-                    <p>
-                        منصة إعلامية وصحفية تواكب الحدث بدقة وموضوعية، تقدم التقارير المعمقة، التغطيات الإخبارية، والتحليلات التي تضع القارئ في قلب الصورة بعيداً عن التشتيت.
-                    </p>
-                </div>
-                <div class="entity-footer">
-                    <span>إحدى مؤسسات RAWI-YE</span>
-                    <span>قريباً ←</span>
-                </div>
-            </div>
-
-            <!-- الكيان الثاني -->
-            <div class="entity-card">
-                <div>
-                    <div class="entity-number">02</div>
-                    <span class="entity-badge">قطاع الأرشفة والتوثيق الثقافي</span>
-                    <h3>مكتبة وموسوعة الحجرية</h3>
-                    <p>
-                        صرحٌ معرفي وموسوعي رقمي يُعنى بجمع وتوثيق التراث الثقافي، التاريخي، والأدبي، وإتاحة المخطوطات والكتب والسير الذاتية للأجيال والباحثين في قالب رقمي حديث.
-                    </p>
-                </div>
-                <div class="entity-footer">
-                    <span>إحدى مؤسسات RAWI-YE</span>
-                    <span>قريباً ←</span>
-                </div>
-            </div>
-
-            <!-- الكيان الثالث -->
-            <div class="entity-card">
-                <div>
-                    <div class="entity-number">03</div>
-                    <span class="entity-badge">التوسع المستقبلي</span>
-                    <h3>مشاريع ومنصات قادمة</h3>
-                    <p>
-                        سلسلة من المبادرات الرقمية والمنصات التخصصية قيد الابتكار والتطوير داخل مختبرات المؤسسة، سيتم الكشف عنها تباعاً لتعزيز المحتوى العربي واليمني على الإنترنت.
-                    </p>
-                </div>
-                <div class="entity-footer">
-                    <span>مختبرات التطوير</span>
-                    <span>قيد الإنشاء ←</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- التذييل -->
-    <footer>
-        <div class="footer-logo">RAWI-YE.COM</div>
-        <p class="footer-text">جميع الحقوق محفوظة © 2026 مؤسسة RAWI-YE الرقمية والكيانات التابعة لها.</p>
-    </footer>
-
-    <!-- كود جافاسكريبت خفيف لحركة الإضاءة التفاعلية -->
+    <!-- 12. محرك الجافاسكريبت (توليد النجوم، تعاقب الليل والنهار كل 5 ثوانٍ، إدارة النوافذ) -->
     <script>
-        const glow = document.getElementById('cursorGlow');
-        document.addEventListener('mousemove', (e) => {
-            glow.style.left = e.clientX + 'px';
-            glow.style.top = e.clientY + 'px';
+        // 1. توليد النجوم الكرتونية في السماء عشوائياً
+        const starsContainer = document.getElementById('starsContainer');
+        const starCount = 55;
+        for (let i = 0; i < starCount; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            const size = Math.random() * 3.5 + 1.5;
+            star.style.width = `${size}px`;
+            star.style.height = `${size}px`;
+            star.style.top = `${Math.random() * 58}%`;
+            star.style.left = `${Math.random() * 100}%`;
+            star.style.animationDelay = `${Math.random() * 3}s`;
+            star.style.animationDuration = `${Math.random() * 2 + 2}s`;
+            starsContainer.appendChild(star);
+        }
+
+        // 2. نظام تعاقب الفصول والليل والنهار تلقائياً كل 5 ثوانٍ
+        const phases = ['phase-dawn', 'phase-day', 'phase-sunset', 'phase-night'];
+        let currentPhaseIndex = 1; // نبدأ بالنهار المشرق
+        let cycleInterval;
+
+        function applyPhase(index) {
+            currentPhaseIndex = index;
+            document.body.className = phases[currentPhaseIndex];
+            
+            // تحديث حالة الأزرار في الشريط العلوي
+            const buttons = document.querySelectorAll('.time-btn');
+            buttons.forEach((btn, idx) => {
+                if (idx === currentPhaseIndex) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+        }
+
+        function startAutoCycle() {
+            cycleInterval = setInterval(() => {
+                const nextIndex = (currentPhaseIndex + 1) % phases.length;
+                applyPhase(nextIndex);
+            }, 5000); // يتغير المشهد كل 5 ثوانٍ
+        }
+
+        function manualSetPhase(index) {
+            clearInterval(cycleInterval);
+            applyPhase(index);
+            // إعادة تشغيل الدورة التلقائية بعد اختيار المستخدم
+            startAutoCycle();
+        }
+
+        // بدء الدورة الزمنية عند فتح الموقع
+        startAutoCycle();
+
+        // 3. دوال فتح وإغلاق النوافذ التفاعلية للمشاريع
+        function openProjectModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.add('open');
+            }
+        }
+
+        function closeProjectModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.remove('open');
+            }
+        }
+
+        function closeModalOnOutsideClick(event, modalId) {
+            if (event.target.id === modalId) {
+                closeProjectModal(modalId);
+            }
+        }
+
+        // إغلاق النافذة عند الضغط على زر Escape في لوحة المفاتيح
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                document.querySelectorAll('.modal-overlay.open').forEach(modal => {
+                    modal.classList.remove('open');
+                });
+            }
         });
     </script>
 </body>
