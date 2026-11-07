@@ -6,159 +6,112 @@
     <title>Rawi-ye | مؤسسة راوي الإعلامية الرقمية</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@500;700;800&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Readex+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
     <style>
         :root {
-            /* متغيرات دورة الزمن - البداية: نهار صيفي مشرق */
-            --sky-top: #0284c7;
-            --sky-mid: #38bdf8;
-            --sky-bottom: #e0f2fe;
-            --sun-opacity: 1;
-            --sun-y: 58px;
-            --sun-x: 12%;
-            --moon-opacity: 0;
-            --moon-y: 180px;
-            --stars-opacity: 0;
-            --clouds-opacity: 0.95;
-            --birds-opacity: 0.9;
-            --mountain-far: #60a5fa;
-            --mountain-mid: #3b82f6;
-            --mountain-near: #1d4ed8;
-            --house-body: #9a5833;
-            --house-alt: #854625;
-            --house-shadow: #633218;
-            --gypsum-color: #ffffff;
-            --window-glow: rgba(255, 255, 255, 0.45);
-            --qamariya-glow: 0.4;
+            /* متغيرات تتكيف تلقائياً مع دورة الطبيعة */
+            --text-main: #091e3a;
+            --text-sub: #1e3a5f;
+            --text-glow: rgba(255, 255, 255, 0.85);
+            --accent: #0284c7;
+            --accent-gold: #d97706;
             
-            /* متغيرات اللوحة الزجاجية */
-            --glass-bg: rgba(255, 255, 255, 0.62);
-            --glass-border: rgba(255, 255, 255, 0.88);
-            --glass-shadow: rgba(15, 23, 42, 0.14);
-            --text-primary: #0f172a;
-            --text-secondary: #334155;
-            --card-item-bg: rgba(255, 255, 255, 0.82);
-            --card-item-hover: rgba(255, 255, 255, 0.96);
-            --accent-primary: #0284c7;
-            --accent-secondary: #d97706;
+            /* كبسولات الزجاج المندمجة بالخلفية */
+            --pod-bg: rgba(255, 255, 255, 0.38);
+            --pod-border: rgba(255, 255, 255, 0.75);
+            --pod-shadow: rgba(12, 38, 78, 0.12);
+            
+            /* ألوان الجبال والعمارة اليمنية */
+            --mtn-1: #60a5fa;
+            --mtn-2: #3b82f6;
+            --mtn-3: #1d4ed8;
+            --terrace: #15803d;
+            --stone-main: #9a5833;
+            --stone-dark: #6e3a1c;
+            --window-light: rgba(255, 255, 255, 0.5);
+            --qamariya-opacity: 0.45;
+            --lantern-glow: 0;
         }
 
-        /* 1. طور الشروق */
-        body.phase-dawn {
-            --sky-top: #312e81;
-            --sky-mid: #ea580c;
-            --sky-bottom: #fde68a;
-            --sun-opacity: 0.95;
-            --sun-y: 95px;
-            --sun-x: 76%;
-            --moon-opacity: 0;
-            --moon-y: 200px;
-            --stars-opacity: 0.25;
-            --clouds-opacity: 0.8;
-            --birds-opacity: 0.7;
-            --mountain-far: #7c3aed;
-            --mountain-mid: #5b21b6;
-            --mountain-near: #3b0764;
-            --house-body: #7c4326;
-            --house-alt: #69361c;
-            --house-shadow: #4a230f;
-            --window-glow: rgba(254, 215, 170, 0.7);
-            --qamariya-glow: 0.65;
-            --glass-bg: rgba(255, 250, 245, 0.62);
-            --glass-border: rgba(255, 255, 255, 0.82);
-            --text-primary: #27120b;
-            --text-secondary: #572b1c;
-            --card-item-bg: rgba(255, 255, 255, 0.8);
-            --accent-primary: #c2410c;
+        /* طور الشروق */
+        body[data-phase="dawn"] {
+            --text-main: #2a1205;
+            --text-sub: #5c2810;
+            --text-glow: rgba(255, 240, 220, 0.7);
+            --accent: #ea580c;
+            --accent-gold: #b45309;
+            --pod-bg: rgba(255, 248, 240, 0.36);
+            --pod-border: rgba(255, 235, 210, 0.7);
+            --mtn-1: #8b5cf6;
+            --mtn-2: #6d28d9;
+            --mtn-3: #4c1d95;
+            --terrace: #3f6212;
+            --stone-main: #854625;
+            --stone-dark: #572a12;
+            --window-light: rgba(254, 215, 170, 0.8);
+            --qamariya-opacity: 0.75;
+            --lantern-glow: 0.5;
         }
 
-        /* 2. طور النهار */
-        body.phase-day {
-            --sky-top: #0284c7;
-            --sky-mid: #38bdf8;
-            --sky-bottom: #e0f2fe;
-            --sun-opacity: 1;
-            --sun-y: 58px;
-            --sun-x: 12%;
-            --moon-opacity: 0;
-            --moon-y: 180px;
-            --stars-opacity: 0;
-            --clouds-opacity: 0.95;
-            --birds-opacity: 0.95;
-            --mountain-far: #60a5fa;
-            --mountain-mid: #3b82f6;
-            --mountain-near: #1e40af;
-            --house-body: #9a5833;
-            --house-alt: #854625;
-            --house-shadow: #633218;
-            --window-glow: rgba(255, 255, 255, 0.45);
-            --qamariya-glow: 0.4;
-            --glass-bg: rgba(255, 255, 255, 0.62);
-            --glass-border: rgba(255, 255, 255, 0.88);
-            --text-primary: #0f172a;
-            --text-secondary: #334155;
-            --card-item-bg: rgba(255, 255, 255, 0.82);
-            --accent-primary: #0284c7;
+        /* طور النهار الصيفي المشرق */
+        body[data-phase="day"] {
+            --text-main: #06182c;
+            --text-sub: #163656;
+            --text-glow: rgba(255, 255, 255, 0.9);
+            --accent: #0284c7;
+            --accent-gold: #d97706;
+            --pod-bg: rgba(255, 255, 255, 0.42);
+            --pod-border: rgba(255, 255, 255, 0.82);
+            --mtn-1: #60a5fa;
+            --mtn-2: #2563eb;
+            --mtn-3: #1e3a8a;
+            --terrace: #16a34a;
+            --stone-main: #a15c38;
+            --stone-dark: #733e20;
+            --window-light: rgba(255, 255, 255, 0.55);
+            --qamariya-opacity: 0.4;
+            --lantern-glow: 0;
         }
 
-        /* 3. طور الغروب */
-        body.phase-sunset {
-            --sky-top: #1e1b4b;
-            --sky-mid: #be185d;
-            --sky-bottom: #fb923c;
-            --sun-opacity: 0.95;
-            --sun-y: 105px;
-            --sun-x: 14%;
-            --moon-opacity: 0.25;
-            --moon-y: 75px;
-            --stars-opacity: 0.45;
-            --clouds-opacity: 0.7;
-            --birds-opacity: 0.65;
-            --mountain-far: #6b21a8;
-            --mountain-mid: #4c1d95;
-            --mountain-near: #2e1065;
-            --house-body: #613018;
-            --house-alt: #4f2510;
-            --house-shadow: #361708;
-            --window-glow: #fde047;
-            --qamariya-glow: 0.9;
-            --glass-bg: rgba(255, 245, 240, 0.6);
-            --glass-border: rgba(255, 228, 214, 0.78);
-            --text-primary: #27120b;
-            --text-secondary: #5c2818;
-            --card-item-bg: rgba(255, 250, 247, 0.82);
-            --accent-primary: #be185d;
+        /* طور الغروب الدافئ */
+        body[data-phase="sunset"] {
+            --text-main: #fff7ed;
+            --text-sub: #ffedd5;
+            --text-glow: rgba(45, 10, 30, 0.65);
+            --accent: #fb923c;
+            --accent-gold: #fde047;
+            --pod-bg: rgba(40, 15, 45, 0.38);
+            --pod-border: rgba(255, 200, 160, 0.45);
+            --mtn-1: #701a75;
+            --mtn-2: #4a044e;
+            --mtn-3: #2e1065;
+            --terrace: #365314;
+            --stone-main: #693318;
+            --stone-dark: #421d0b;
+            --window-light: #fde047;
+            --qamariya-opacity: 0.95;
+            --lantern-glow: 0.9;
         }
 
-        /* 4. طور الليل */
-        body.phase-night {
-            --sky-top: #030712;
-            --sky-mid: #0f172a;
-            --sky-bottom: #1e293b;
-            --sun-opacity: 0;
-            --sun-y: 240px;
-            --sun-x: 50%;
-            --moon-opacity: 1;
-            --moon-y: 60px;
-            --stars-opacity: 1;
-            --clouds-opacity: 0.18;
-            --birds-opacity: 0;
-            --mountain-far: #1e293b;
-            --mountain-mid: #0f172a;
-            --mountain-near: #020617;
-            --house-body: #422312;
-            --house-alt: #33190b;
-            --house-shadow: #1f0e05;
-            --window-glow: #facc15;
-            --qamariya-glow: 1;
-            --glass-bg: rgba(15, 23, 42, 0.64);
-            --glass-border: rgba(255, 255, 255, 0.22);
-            --text-primary: #f8fafc;
-            --text-secondary: #cbd5e1;
-            --card-item-bg: rgba(30, 41, 59, 0.82);
-            --card-item-hover: rgba(51, 65, 85, 0.95);
-            --accent-primary: #38bdf8;
+        /* طور الليل اليمني الساحر */
+        body[data-phase="night"] {
+            --text-main: #f8fafc;
+            --text-sub: #cbd5e1;
+            --text-glow: rgba(2, 6, 23, 0.85);
+            --accent: #38bdf8;
+            --accent-gold: #fbbf24;
+            --pod-bg: rgba(15, 23, 42, 0.46);
+            --pod-border: rgba(148, 163, 184, 0.35);
+            --mtn-1: #1e293b;
+            --mtn-2: #0f172a;
+            --mtn-3: #020617;
+            --terrace: #064e3b;
+            --stone-main: #432210;
+            --stone-dark: #261105;
+            --window-light: #facc15;
+            --qamariya-opacity: 1;
+            --lantern-glow: 1;
         }
 
         * {
@@ -170,318 +123,179 @@
 
         html, body {
             width: 100%;
-            min-height: 100dvh;
-            font-family: 'Cairo', 'Tajawal', sans-serif;
-            overflow-x: hidden;
+            height: 100dvh;
+            overflow: hidden;
+            font-family: 'Cairo', sans-serif;
             position: relative;
             user-select: none;
+            background: #020617;
         }
 
-        /* السماء الديناميكية */
-        .sky-backdrop {
+        /* =========================================
+           1. محرك السماء ذو الطبقات المتداخلة (انصهار لوني حريري)
+           ========================================= */
+        .sky-engine {
             position: fixed;
             inset: 0;
-            background: linear-gradient(180deg, var(--sky-top) 0%, var(--sky-mid) 52%, var(--sky-bottom) 100%);
-            transition: background 2.5s ease-in-out;
             z-index: 0;
+            pointer-events: none;
         }
 
-        /* النجوم المتلألئة */
-        .stars-container {
+        .sky-layer {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            transition: opacity 3.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .sky-dawn {
+            background: linear-gradient(180deg, #1e1b4b 0%, #7c2d12 38%, #ea580c 70%, #fde68a 100%);
+        }
+        .sky-day {
+            background: linear-gradient(180deg, #0284c7 0%, #38bdf8 48%, #bae6fd 82%, #f0f9ff 100%);
+        }
+        .sky-sunset {
+            background: linear-gradient(180deg, #17153b 0%, #831843 38%, #ea580c 74%, #fde047 100%);
+        }
+        .sky-night {
+            background: linear-gradient(180deg, #020617 0%, #091326 45%, #1e293b 85%, #2e1065 100%);
+        }
+
+        body[data-phase="dawn"] .sky-dawn { opacity: 1; }
+        body[data-phase="day"] .sky-day { opacity: 1; }
+        body[data-phase="sunset"] .sky-sunset { opacity: 1; }
+        body[data-phase="night"] .sky-night { opacity: 1; }
+
+        /* =========================================
+           2. المدار الفلكي للشمس والقمر
+           ========================================= */
+        .celestial-orbit {
             position: fixed;
             inset: 0;
-            opacity: var(--stars-opacity);
-            transition: opacity 2.5s ease-in-out;
-            pointer-events: none;
             z-index: 1;
-        }
-
-        .star {
-            position: absolute;
-            background: #ffffff;
-            border-radius: 50%;
-            box-shadow: 0 0 6px #ffffff, 0 0 12px #fde047;
-            animation: twinkle 2.8s infinite ease-in-out alternate;
-        }
-
-        @keyframes twinkle {
-            0% { transform: scale(0.6); opacity: 0.3; }
-            100% { transform: scale(1.25); opacity: 1; }
-        }
-
-        /* الشمس الكرتونية المشرقة (تم ضبط موقعها لتظهر بوضوح في الجوال) */
-        .sun-wrapper {
-            position: fixed;
-            top: var(--sun-y);
-            left: var(--sun-x);
-            opacity: var(--sun-opacity);
-            transition: top 2.5s cubic-bezier(0.4, 0, 0.2, 1), left 2.5s ease, opacity 2s ease;
-            z-index: 2;
             pointer-events: none;
         }
 
-        .cartoon-sun {
-            width: 68px;
-            height: 68px;
-            background: radial-gradient(circle, #fffbeb 12%, #fde047 55%, #f59e0b 100%);
-            border-radius: 50%;
-            box-shadow: 0 0 40px rgba(251, 191, 36, 0.9), 0 0 80px rgba(245, 158, 11, 0.5);
-            position: relative;
-            animation: pulseSun 4s infinite ease-in-out;
-        }
-
-        .sun-rays {
+        /* الشمس المشرقة */
+        .sun-orb {
             position: absolute;
-            inset: -14px;
+            width: 78px;
+            height: 78px;
             border-radius: 50%;
-            border: 3px dashed rgba(254, 240, 138, 0.75);
-            animation: spinRays 20s linear infinite;
+            background: radial-gradient(circle, #ffffff 15%, #fef08a 55%, #f59e0b 100%);
+            box-shadow: 0 0 50px rgba(251, 191, 36, 0.95), 0 0 110px rgba(245, 158, 11, 0.6);
+            transition: all 3.2s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        @keyframes pulseSun {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.08); }
-        }
-
-        @keyframes spinRays {
-            100% { transform: rotate(360deg); }
-        }
-
-        /* القمر الهلالي في الليل */
-        .moon-wrapper {
-            position: fixed;
-            top: var(--moon-y);
-            right: 12%;
-            opacity: var(--moon-opacity);
-            transition: top 2.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 2s ease;
-            z-index: 2;
-            pointer-events: none;
-        }
-
-        .cartoon-moon {
-            width: 58px;
-            height: 58px;
-            border-radius: 50%;
-            box-shadow: -14px 8px 0 0 #fef08a, -14px 8px 30px rgba(254, 240, 138, 0.7);
-            transform: rotate(-15deg);
-            animation: floatMoon 5s ease-in-out infinite;
-        }
-
-        @keyframes floatMoon {
-            0%, 100% { transform: translateY(0) rotate(-15deg); }
-            50% { transform: translateY(-6px) rotate(-11deg); }
-        }
-
-        /* السحب الكرتونية المتحركة */
-        .clouds-layer {
-            position: fixed;
-            inset: 0;
-            opacity: var(--clouds-opacity);
-            transition: opacity 2.5s ease;
-            z-index: 3;
-            pointer-events: none;
-        }
-
-        .cloud {
-            position: absolute;
-            background: rgba(255, 255, 255, 0.92);
-            border-radius: 100px;
-            filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.08));
-        }
-
-        .cloud::before, .cloud::after {
+        .sun-orb::after {
             content: '';
             position: absolute;
-            background: rgba(255, 255, 255, 0.92);
+            inset: -16px;
             border-radius: 50%;
+            border: 2.5px dashed rgba(254, 240, 138, 0.7);
+            animation: spinSlow 24s linear infinite;
         }
 
-        .cloud-1 {
-            width: 105px;
-            height: 34px;
-            top: 72px;
-            left: -130px;
-            animation: moveCloud 28s linear infinite;
-        }
-        .cloud-1::before { width: 46px; height: 46px; top: -22px; left: 14px; }
-        .cloud-1::after { width: 56px; height: 56px; top: -28px; right: 14px; }
+        /* حركة الشمس عبر قوس السماء */
+        body[data-phase="dawn"] .sun-orb { top: 48%; left: 78%; opacity: 0.95; transform: scale(0.95); }
+        body[data-phase="day"] .sun-orb { top: 7%; left: 14%; opacity: 1; transform: scale(1.05); }
+        body[data-phase="sunset"] .sun-orb { top: 52%; left: 10%; opacity: 0.95; transform: scale(1.15); }
+        body[data-phase="night"] .sun-orb { top: 85%; left: 5%; opacity: 0; transform: scale(0.5); }
 
-        .cloud-2 {
-            width: 85px;
-            height: 28px;
-            top: 125px;
-            left: -110px;
-            animation: moveCloud 36s linear infinite 9s;
-        }
-        .cloud-2::before { width: 38px; height: 38px; top: -18px; left: 12px; }
-        .cloud-2::after { width: 46px; height: 46px; top: -22px; right: 12px; }
-
-        .cloud-3 {
-            width: 120px;
-            height: 38px;
-            top: 52px;
-            left: -150px;
-            opacity: 0.85;
-            animation: moveCloud 32s linear infinite 18s;
-        }
-        .cloud-3::before { width: 52px; height: 52px; top: -25px; left: 18px; }
-        .cloud-3::after { width: 62px; height: 62px; top: -32px; right: 18px; }
-
-        @keyframes moveCloud {
-            0% { transform: translateX(-150px); }
-            100% { transform: translateX(calc(100vw + 300px)); }
+        /* القمر الهلالي */
+        .moon-orb {
+            position: absolute;
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            box-shadow: -15px 9px 0 0 #fef08a, -15px 9px 35px rgba(254, 240, 138, 0.75);
+            transition: all 3.2s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        /* سرب الطيور المتحرك */
-        .birds-layer {
+        body[data-phase="dawn"] .moon-orb { top: 75%; right: 80%; opacity: 0; transform: rotate(-25deg) scale(0.6); }
+        body[data-phase="day"] .moon-orb { top: 85%; right: 50%; opacity: 0; transform: rotate(-15deg) scale(0.6); }
+        body[data-phase="sunset"] .moon-orb { top: 22%; right: 14%; opacity: 0.35; transform: rotate(-15deg) scale(0.85); }
+        body[data-phase="night"] .moon-orb { top: 9%; right: 14%; opacity: 1; transform: rotate(-15deg) scale(1); }
+
+        @keyframes spinSlow { 100% { transform: rotate(360deg); } }
+
+        /* =========================================
+           3. لوحة الرسم الحية (Canvas: نجوم، شهب، طيور، سحب، يراعات مضيئة)
+           ========================================= */
+        #worldCanvas {
             position: fixed;
-            top: 85px;
-            left: -90px;
-            opacity: var(--birds-opacity);
-            transition: opacity 2s ease;
-            z-index: 3;
-            pointer-events: none;
-            animation: flyAcross 22s linear infinite;
-        }
-
-        @keyframes flyAcross {
-            0% { transform: translate(-80px, 15px) scale(0.85); }
-            50% { transform: translate(50vw, -18px) scale(1); }
-            100% { transform: translate(calc(100vw + 120px), 8px) scale(0.85); }
-        }
-
-        /* المشهد المعماري والطبيعي اليمني في الأسفل (مصمم ليظهر كاملاً في الجوال) */
-        .yemeni-landscape {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 215px;
-            z-index: 4;
-            pointer-events: none;
-        }
-
-        .landscape-svg {
+            inset: 0;
             width: 100%;
             height: 100%;
-            display: block;
+            z-index: 2;
+            pointer-events: none;
         }
 
-        /* تفاعلات الألوان داخل رسم الـ SVG */
-        .mtn-far { fill: var(--mountain-far); transition: fill 2.5s ease; }
-        .mtn-mid { fill: var(--mountain-mid); transition: fill 2.5s ease; }
-        .mtn-near { fill: var(--mountain-near); transition: fill 2.5s ease; }
-        .house-wall { fill: var(--house-body); transition: fill 2.5s ease; }
-        .house-wall-alt { fill: var(--house-alt); transition: fill 2.5s ease; }
-        .house-side { fill: var(--house-shadow); transition: fill 2.5s ease; }
-        .gypsum-trim { fill: var(--gypsum-color); }
-        .yemeni-window { fill: var(--window-glow); transition: fill 2.5s ease; }
-        .qamariya-glass { opacity: var(--qamariya-glow); transition: opacity 2.5s ease; }
-
-        /* الهيكل الرئيسي للصفحة (يمنع أي تداخل بين الشريط العلوي والبطاقة والبيوت) */
-        .page-layout {
+        /* =========================================
+           4. الواجهة المندمجة في الفضاء (Spatial Frameless UI)
+           ========================================= */
+        .spatial-stage {
             position: relative;
             z-index: 10;
-            min-height: 100dvh;
+            width: 100%;
+            height: 100dvh;
             display: flex;
             flex-direction: column;
+            justify-content: space-between;
             align-items: center;
-            justify-content: flex-start;
-            padding: 12px 14px 195px; /* مساحة سفلية مخصصة لظهور البيوت اليمنية بالكامل */
-            gap: 14px;
-        }
-
-        /* شريط التحكم العلوي (بدون تداخل) */
-        .time-controller {
-            background: var(--glass-bg);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1.5px solid var(--glass-border);
-            padding: 5px 8px;
-            border-radius: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 4px;
-            box-shadow: 0 8px 25px var(--glass-shadow);
-            width: 100%;
-            max-width: 390px;
-            flex-shrink: 0;
-        }
-
-        .time-btn {
-            flex: 1;
-            background: transparent;
-            border: none;
-            color: var(--text-primary);
-            font-family: inherit;
-            font-size: 0.8rem;
-            font-weight: 800;
-            padding: 6px 8px;
-            border-radius: 25px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 4px;
-            white-space: nowrap;
-        }
-
-        .time-btn.active {
-            background: var(--accent-primary);
-            color: #ffffff;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.18);
-        }
-
-        /* اللوحة الزجاجية المركزية */
-        .glass-launchpad {
-            position: relative;
-            background: var(--glass-bg);
-            backdrop-filter: blur(16px) saturate(160%);
-            -webkit-backdrop-filter: blur(16px) saturate(160%);
-            border: 1.5px solid var(--glass-border);
-            border-radius: 26px;
-            padding: 22px 18px 20px;
-            max-width: 520px;
-            width: 100%;
-            text-align: center;
-            box-shadow: 0 20px 50px var(--glass-shadow), inset 0 2px 4px rgba(255, 255, 255, 0.45);
-            transition: background 1.5s ease, border-color 1.5s ease, color 1.5s ease;
-            overflow: hidden;
-            margin-top: 8px;
-        }
-
-        /* زخرفة القمرية اليمنية الدوارة خلف اللوحة الزجاجية */
-        .qamariya-watermark {
-            position: absolute;
-            top: -55px;
-            left: -55px;
-            width: 170px;
-            height: 170px;
-            opacity: 0.12;
+            padding: 3.5vh 18px 235px; /* يترك منطقة الجبال والبيوت اليمنية مكشوفة بالكامل */
             pointer-events: none;
-            animation: rotateSlow 45s linear infinite;
         }
 
-        @keyframes rotateSlow {
-            100% { transform: rotate(360deg); }
+        /* القسم العلوي: الهوية المندمجة في السماء مباشرة بدون صندوق عازل */
+        .sky-identity {
+            text-align: center;
+            max-width: 540px;
+            width: 100%;
+            pointer-events: auto;
+            animation: floatGentle 6s ease-in-out infinite;
         }
 
-        /* شارة حالة المؤسسة */
-        .org-badge {
+        @keyframes floatGentle {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        /* أيقونة القمرية اليمنية المشعة فوق الاسم */
+        .qamariya-crown {
+            width: 56px;
+            height: 56px;
+            margin: 0 auto 8px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .qamariya-crown svg {
+            width: 100%;
+            height: 100%;
+            filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.15));
+            animation: spinSlow 35s linear infinite;
+        }
+
+        .live-status-pill {
             display: inline-flex;
             align-items: center;
             gap: 7px;
-            background: var(--card-item-bg);
-            border: 1px solid var(--glass-border);
+            background: var(--pod-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--pod-border);
             padding: 4px 14px;
             border-radius: 50px;
-            font-size: 0.78rem;
+            font-size: 0.76rem;
             font-weight: 800;
-            color: var(--text-primary);
-            margin-bottom: 8px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.04);
+            color: var(--text-main);
+            margin-bottom: 6px;
+            box-shadow: 0 4px 15px var(--pod-shadow);
+            transition: all 1.5s ease;
         }
 
         .pulse-dot {
@@ -489,260 +303,300 @@
             height: 8px;
             background: #10b981;
             border-radius: 50%;
-            box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
-            animation: pulseGreen 2s infinite;
+            box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.8);
+            animation: pulseDot 2s infinite;
         }
 
-        @keyframes pulseGreen {
-            0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
-            70% { box-shadow: 0 0 0 7px rgba(16, 185, 129, 0); }
+        @keyframes pulseDot {
+            70% { box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
             100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
         }
 
-        .brand-name {
-            font-size: 2.25rem;
+        .hero-brand {
+            font-family: 'Readex Pro', 'Cairo', sans-serif;
+            font-size: clamp(2.4rem, 7vw, 3.6rem);
             font-weight: 900;
-            color: var(--text-primary);
-            letter-spacing: -0.5px;
-            line-height: 1.1;
-            margin-bottom: 2px;
+            color: var(--text-main);
+            letter-spacing: -1px;
+            line-height: 1.05;
+            text-shadow: 0 2px 24px var(--text-glow), 0 1px 3px var(--text-glow);
+            transition: color 1.5s ease, text-shadow 1.5s ease;
         }
 
-        .brand-name span {
-            color: var(--accent-primary);
+        .hero-brand span {
+            color: var(--accent);
+            transition: color 1.5s ease;
         }
 
-        .brand-subtitle {
-            font-size: 1rem;
+        .hero-subtitle {
+            font-size: clamp(0.95rem, 2.8vw, 1.15rem);
             font-weight: 800;
-            color: var(--accent-secondary);
-            margin-bottom: 10px;
+            color: var(--accent-gold);
+            text-shadow: 0 1px 12px var(--text-glow);
+            margin: 2px 0 8px;
+            transition: color 1.5s ease;
         }
 
-        /* فاصل زخرفي يمني */
-        .yemeni-divider {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-            margin: 8px auto 12px;
-            width: 70%;
-        }
-
-        .divider-line {
-            flex: 1;
-            height: 1.5px;
-            background: linear-gradient(90deg, transparent, var(--text-secondary), transparent);
-            opacity: 0.35;
-        }
-
-        .divider-diamond {
-            width: 7px;
-            height: 7px;
-            background: var(--accent-primary);
-            transform: rotate(45deg);
-        }
-
-        .brand-description {
-            font-size: 0.88rem;
+        .hero-bio {
+            font-size: clamp(0.84rem, 2.4vw, 0.98rem);
             line-height: 1.65;
-            color: var(--text-secondary);
-            margin-bottom: 16px;
+            color: var(--text-sub);
             font-weight: 700;
+            text-shadow: 0 1px 14px var(--text-glow), 0 0 5px var(--text-glow);
+            max-width: 470px;
+            margin: 0 auto;
+            padding: 0 6px;
+            transition: color 1.5s ease, text-shadow 1.5s ease;
         }
 
-        .projects-heading {
-            font-size: 0.82rem;
-            font-weight: 800;
-            color: var(--text-primary);
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-        }
-
-        /* أزرار المشاريع (مصممة خصيصاً للجوال لمنع انضغاط النص) */
-        .projects-grid {
+        /* القسم الأوسط/السفلي: كبسولات المشاريع الزجاجية العائمة فوق القرية اليمنية */
+        .spatial-pods-wrapper {
+            width: 100%;
+            max-width: 490px;
             display: flex;
             flex-direction: column;
             gap: 10px;
+            pointer-events: auto;
         }
 
-        .project-trigger-btn {
+        .pods-label {
+            font-size: 0.78rem;
+            font-weight: 800;
+            color: var(--text-main);
+            text-align: center;
+            text-shadow: 0 1px 10px var(--text-glow);
+            letter-spacing: 0.3px;
+            opacity: 0.92;
+            transition: color 1.5s ease;
+        }
+
+        .spatial-pod {
             width: 100%;
-            background: var(--card-item-bg);
-            border: 1.5px solid var(--glass-border);
-            border-radius: 18px;
-            padding: 13px 14px;
+            background: var(--pod-bg);
+            backdrop-filter: blur(16px) saturate(180%);
+            -webkit-backdrop-filter: blur(16px) saturate(180%);
+            border: 1.5px solid var(--pod-border);
+            border-radius: 22px;
+            padding: 13px 16px;
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            gap: 12px;
+            gap: 13px;
             cursor: pointer;
-            font-family: inherit;
             text-align: right;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            font-family: inherit;
+            box-shadow: 0 12px 32px var(--pod-shadow), inset 0 1px 2px rgba(255, 255, 255, 0.5);
+            transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.4s ease, border-color 0.4s ease;
         }
 
-        .project-trigger-btn:hover, .project-trigger-btn:active {
-            transform: translateY(-2px);
-            background: var(--card-item-hover);
-            border-color: var(--accent-primary);
-            box-shadow: 0 10px 22px rgba(0, 0, 0, 0.1);
+        .spatial-pod:hover, .spatial-pod:active {
+            transform: translateY(-3px) scale(1.015);
+            border-color: var(--accent);
         }
 
-        .project-icon-box {
-            width: 46px;
-            height: 46px;
-            border-radius: 14px;
+        .pod-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 15px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 1.45rem;
             flex-shrink: 0;
+            position: relative;
         }
 
-        .icon-press {
+        .pod-icon-press {
             background: linear-gradient(135deg, #0284c7, #38bdf8);
-            color: #ffffff;
-            box-shadow: 0 5px 12px rgba(2, 132, 199, 0.3);
+            box-shadow: 0 6px 16px rgba(2, 132, 199, 0.35);
         }
 
-        .icon-library {
+        .pod-icon-library {
             background: linear-gradient(135deg, #d97706, #fbbf24);
-            color: #ffffff;
-            box-shadow: 0 5px 12px rgba(217, 119, 6, 0.3);
+            box-shadow: 0 6px 16px rgba(217, 119, 6, 0.35);
         }
 
-        .project-btn-content {
+        .pod-body {
             flex: 1;
-            min-width: 0; /* يمنع خروج النص */
+            min-width: 0;
         }
 
-        .project-top-row {
+        .pod-header {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 6px;
-            margin-bottom: 3px;
+            gap: 8px;
+            margin-bottom: 2px;
         }
 
-        .project-top-row h3 {
-            font-size: 1.02rem;
+        .pod-title {
+            font-size: 1.05rem;
             font-weight: 900;
-            color: var(--text-primary);
+            color: var(--text-main);
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
+            transition: color 1.5s ease;
         }
 
-        .project-subtitle-row {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 6px;
-        }
-
-        .project-subtitle-row p {
-            font-size: 0.78rem;
-            color: var(--text-secondary);
-            font-weight: 700;
-            line-height: 1.35;
-        }
-
-        .status-pill {
-            padding: 3px 9px;
+        .pod-badge {
+            padding: 2px 9px;
             border-radius: 30px;
-            font-size: 0.7rem;
+            font-size: 0.68rem;
             font-weight: 800;
             white-space: nowrap;
             flex-shrink: 0;
         }
 
-        .pill-live {
-            background: rgba(16, 185, 129, 0.16);
-            color: #059669;
-            border: 1px solid rgba(16, 185, 129, 0.35);
+        .badge-live {
+            background: rgba(16, 185, 129, 0.22);
+            color: #047857;
+            border: 1px solid rgba(16, 185, 129, 0.45);
+        }
+        body[data-phase="sunset"] .badge-live,
+        body[data-phase="night"] .badge-live {
+            color: #6ee7b7;
+            background: rgba(16, 185, 129, 0.25);
         }
 
-        body.phase-night .pill-live {
-            color: #34d399;
+        .badge-soon {
+            background: rgba(245, 158, 11, 0.22);
+            color: #92400e;
+            border: 1px solid rgba(245, 158, 11, 0.45);
+        }
+        body[data-phase="sunset"] .badge-soon,
+        body[data-phase="night"] .badge-soon {
+            color: #fde047;
+            background: rgba(245, 158, 11, 0.25);
         }
 
-        .pill-soon {
-            background: rgba(245, 158, 11, 0.18);
-            color: #b45309;
-            border: 1px solid rgba(245, 158, 11, 0.38);
+        .pod-sub {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--text-sub);
+            transition: color 1.5s ease;
         }
 
-        body.phase-night .pill-soon {
-            color: #fbbf24;
-        }
-
-        .arrow-indicator {
-            color: var(--accent-primary);
+        .pod-arrow {
             font-size: 0.95rem;
             font-weight: 900;
-            flex-shrink: 0;
+            color: var(--accent);
+            transition: transform 0.3s ease;
         }
 
-        /* النوافذ المنبثقة (Modals) */
-        .modal-overlay {
+        .spatial-pod:hover .pod-arrow {
+            transform: translateX(-4px);
+        }
+
+        /* =========================================
+           5. بانوراما اليمن المعمارية والجبلية (مكشوفة بالكامل في أسفل الشاشة)
+           ========================================= */
+        .yemen-panorama {
+            position: fixed;
+            bottom: 0;
+            left: -3%;
+            width: 106%;
+            height: 235px;
+            z-index: 5;
+            pointer-events: none;
+            transition: transform 0.2s ease-out;
+        }
+
+        .panorama-svg {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        /* تفاعلات الألوان داخل المشهد المعماري */
+        .svg-mtn-1 { fill: var(--mtn-1); transition: fill 3s ease; }
+        .svg-mtn-2 { fill: var(--mtn-2); transition: fill 3s ease; }
+        .svg-mtn-3 { fill: var(--mtn-3); transition: fill 3s ease; }
+        .svg-terrace { fill: var(--terrace); transition: fill 3s ease; }
+        .svg-stone { fill: var(--stone-main); transition: fill 3s ease; }
+        .svg-stone-dark { fill: var(--stone-dark); transition: fill 3s ease; }
+        .svg-gypsum { fill: #ffffff; }
+        .svg-win { fill: var(--window-light); transition: fill 3s ease; }
+        .svg-qamariya { opacity: var(--qamariya-opacity); transition: opacity 3s ease; }
+        .svg-lantern { opacity: var(--lantern-glow); transition: opacity 3s ease; }
+
+        /* ضباب جبلي ناعم يتحرك بين القمم والوديان */
+        .mountain-mist {
+            position: fixed;
+            bottom: 135px;
+            left: -50%;
+            width: 200%;
+            height: 65px;
+            background: radial-gradient(ellipse at center, rgba(255,255,255,0.22) 0%, transparent 70%);
+            z-index: 4;
+            pointer-events: none;
+            animation: driftMist 18s ease-in-out infinite alternate;
+        }
+
+        @keyframes driftMist {
+            0% { transform: translateX(-8%); }
+            100% { transform: translateX(8%); }
+        }
+
+        /* =========================================
+           6. النوافذ الزجاجية المنبثقة للتفاصيل (Modals)
+           ========================================= */
+        .modal-backdrop {
             position: fixed;
             inset: 0;
             z-index: 100;
-            background: rgba(6, 15, 30, 0.62);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            background: rgba(4, 10, 24, 0.58);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 16px;
+            padding: 18px;
             opacity: 0;
             visibility: hidden;
             transition: all 0.35s ease;
         }
 
-        .modal-overlay.open {
+        .modal-backdrop.open {
             opacity: 1;
             visibility: visible;
         }
 
-        .modal-glass-card {
-            background: var(--glass-bg);
-            backdrop-filter: blur(28px) saturate(180%);
-            -webkit-backdrop-filter: blur(28px) saturate(180%);
-            border: 1.5px solid var(--glass-border);
-            border-radius: 26px;
-            max-width: 460px;
+        .modal-sheet {
+            background: var(--pod-bg);
+            backdrop-filter: blur(28px) saturate(190%);
+            -webkit-backdrop-filter: blur(28px) saturate(190%);
+            border: 1.5px solid var(--pod-border);
+            border-radius: 28px;
+            max-width: 450px;
             width: 100%;
-            padding: 28px 20px 24px;
-            position: relative;
+            padding: 28px 22px 24px;
             text-align: center;
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.38);
-            transform: scale(0.9) translateY(20px);
-            transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
-            color: var(--text-primary);
+            position: relative;
+            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.45);
+            transform: scale(0.9) translateY(25px);
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            color: var(--text-main);
         }
 
-        .modal-overlay.open .modal-glass-card {
+        .modal-backdrop.open .modal-sheet {
             transform: scale(1) translateY(0);
         }
 
-        .modal-close-btn {
+        .close-circle {
             position: absolute;
             top: 16px;
             left: 16px;
-            width: 34px;
-            height: 34px;
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
-            border: 1px solid var(--glass-border);
-            background: var(--card-item-bg);
-            color: var(--text-primary);
-            font-size: 1.05rem;
-            font-weight: 800;
+            border: 1px solid var(--pod-border);
+            background: rgba(255, 255, 255, 0.25);
+            color: var(--text-main);
+            font-size: 1rem;
+            font-weight: 900;
             cursor: pointer;
             display: flex;
             align-items: center;
@@ -750,53 +604,42 @@
             transition: all 0.25s ease;
         }
 
-        .modal-close-btn:hover {
+        .close-circle:hover {
             background: #ef4444;
-            color: #ffffff;
+            color: #fff;
+            transform: rotate(90deg);
         }
 
-        .modal-qamariya-arch {
+        .modal-emblem {
             width: 72px;
             height: 72px;
+            border-radius: 22px;
             margin: 0 auto 12px;
-            border-radius: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 2.1rem;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
         }
 
-        .modal-title {
-            font-size: 1.5rem;
+        .modal-heading {
+            font-size: 1.55rem;
             font-weight: 900;
             margin-bottom: 6px;
-            color: var(--text-primary);
         }
 
-        .modal-category-tag {
-            display: inline-block;
-            font-size: 0.78rem;
-            font-weight: 800;
-            padding: 4px 12px;
-            border-radius: 20px;
-            margin-bottom: 14px;
-        }
-
-        .modal-desc-box {
-            background: var(--card-item-bg);
-            border: 1px solid var(--glass-border);
-            border-radius: 16px;
+        .modal-description {
+            background: rgba(255, 255, 255, 0.22);
+            border: 1px solid var(--pod-border);
+            border-radius: 18px;
             padding: 16px;
             font-size: 0.92rem;
             line-height: 1.75;
-            color: var(--text-secondary);
             font-weight: 700;
-            margin-bottom: 16px;
-            text-align: center;
+            color: var(--text-main);
+            margin: 14px 0 16px;
         }
 
-        .modal-features {
+        .modal-tags {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
@@ -804,447 +647,524 @@
             margin-bottom: 20px;
         }
 
-        .feature-chip {
-            background: var(--card-item-bg);
-            border: 1px solid var(--glass-border);
-            padding: 4px 10px;
-            border-radius: 10px;
-            font-size: 0.76rem;
+        .tag-item {
+            background: rgba(255, 255, 255, 0.25);
+            border: 1px solid var(--pod-border);
+            padding: 4px 11px;
+            border-radius: 12px;
+            font-size: 0.75rem;
             font-weight: 800;
-            color: var(--text-primary);
         }
 
-        .visit-project-btn {
-            display: inline-flex;
+        .cta-visit-btn {
+            display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
+            gap: 10px;
             width: 100%;
-            padding: 14px 20px;
-            background: linear-gradient(135deg, #0284c7 0%, #2563eb 100%);
+            padding: 15px 22px;
+            background: linear-gradient(135deg, #0284c7, #2563eb);
             color: #ffffff;
             text-decoration: none;
-            font-size: 1rem;
-            font-weight: 800;
-            border-radius: 14px;
-            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.35);
-            transition: all 0.3s ease;
+            font-size: 1.02rem;
+            font-weight: 900;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.4);
+            transition: transform 0.3s ease;
         }
 
-        .soon-banner-box {
+        .cta-visit-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .cta-soon-box {
             width: 100%;
             padding: 14px 18px;
-            background: linear-gradient(135deg, rgba(245, 158, 11, 0.18), rgba(217, 119, 6, 0.28));
+            background: rgba(245, 158, 11, 0.22);
             border: 1.5px dashed #f59e0b;
-            border-radius: 14px;
-            color: var(--text-primary);
-            font-weight: 800;
-            font-size: 0.95rem;
+            border-radius: 16px;
+            font-weight: 900;
+            font-size: 0.96rem;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
         }
 
-        /* تحسينات إضافية للشاشات الكبيرة (سطح المكتب) */
+        /* تحسينات الشاشات الكبيرة */
         @media (min-width: 768px) {
-            .page-layout {
-                justify-content: center;
-                padding: 24px 20px 240px;
+            .spatial-stage {
+                padding: 5vh 24px 290px;
             }
-            .yemeni-landscape {
-                height: 270px;
+            .yemen-panorama {
+                height: 290px;
             }
-            .glass-launchpad {
-                padding: 32px 34px;
-                max-width: 580px;
+            .spatial-pods-wrapper {
+                flex-direction: row;
+                max-width: 760px;
+                gap: 16px;
             }
-            .brand-name {
-                font-size: 2.8rem;
-            }
-            .brand-description {
-                font-size: 0.98rem;
-            }
-            .cartoon-sun {
-                width: 90px;
-                height: 90px;
-            }
-            .cartoon-moon {
-                width: 75px;
-                height: 75px;
+            .pods-label {
+                display: none;
             }
         }
     </style>
 </head>
-<body class="phase-day">
+<body data-phase="day">
 
-    <!-- 1. السماء الديناميكية -->
-    <div class="sky-backdrop"></div>
-
-    <!-- 2. النجوم المتلألئة -->
-    <div class="stars-container" id="starsContainer"></div>
-
-    <!-- 3. الشمس الكرتونية المشرقة -->
-    <div class="sun-wrapper">
-        <div class="cartoon-sun">
-            <div class="sun-rays"></div>
-        </div>
+    <!-- 1. محرك السماء ذو الـ 4 طبقات المتداخلة لنعومة فائقة على الجوال -->
+    <div class="sky-engine">
+        <div class="sky-layer sky-dawn"></div>
+        <div class="sky-layer sky-day"></div>
+        <div class="sky-layer sky-sunset"></div>
+        <div class="sky-layer sky-night"></div>
     </div>
 
-    <!-- 4. القمر الهلالي المضيء -->
-    <div class="moon-wrapper">
-        <div class="cartoon-moon"></div>
+    <!-- 2. المدار الفلكي للشمس والقمر -->
+    <div class="celestial-orbit">
+        <div class="sun-orb"></div>
+        <div class="moon-orb"></div>
     </div>
 
-    <!-- 5. السحب الكرتونية المتحركة -->
-    <div class="clouds-layer">
-        <div class="cloud cloud-1"></div>
-        <div class="cloud cloud-2"></div>
-        <div class="cloud cloud-3"></div>
-    </div>
+    <!-- 3. لوحة الأنيميشن الحية (نجوم، شهب، سحب، طيور، يراعات مضيئة) -->
+    <canvas id="worldCanvas"></canvas>
 
-    <!-- 6. سرب الطيور المتحرك -->
-    <div class="birds-layer">
-        <svg width="95" height="42" viewBox="0 0 110 50" fill="none">
-            <path d="M10 25 Q20 10 30 25 Q40 10 50 25" stroke="#1e293b" stroke-width="3" stroke-linecap="round" fill="none"/>
-            <path d="M55 15 Q63 4 71 15 Q79 4 87 15" stroke="#1e293b" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-            <path d="M35 38 Q42 29 49 38 Q56 29 63 38" stroke="#1e293b" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-        </svg>
-    </div>
+    <!-- 4. ضباب الجبال اليمنية المتحرك -->
+    <div class="mountain-mist"></div>
 
-    <!-- 7. الهيكل الرئيسي (مرتب عمودياً لمنع أي تداخل على الجوال) -->
-    <div class="page-layout">
+    <!-- 5. الواجهة المكانية المندمجة في الخلفية (بدون شريط علوي وبدون صندوق يحجب الرؤية) -->
+    <main class="spatial-stage">
         
-        <!-- شريط التحكم بأطوار اليوم -->
-        <nav class="time-controller" aria-label="التحكم بوقت المشهد">
-            <button class="time-btn" onclick="manualSetPhase(0)">🌅 شروق</button>
-            <button class="time-btn active" onclick="manualSetPhase(1)">☀️ نهار</button>
-            <button class="time-btn" onclick="manualSetPhase(2)">🌇 غروب</button>
-            <button class="time-btn" onclick="manualSetPhase(3)">🌙 ليل</button>
-        </nav>
+        <!-- الهوية العلوية المندمجة في السماء -->
+        <header class="sky-identity">
+            <!-- تاج القمرية اليمنية المشع (الضغط عليه يغير طور اليوم أيضاً كحركة خفية) -->
+            <div class="qamariya-crown" onclick="advanceTimePhase()" title="تبديل المشهد">
+                <svg viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="46" fill="none" stroke="currentColor" stroke-width="3" opacity="0.7"/>
+                    <polygon points="50,4 63,37 96,50 63,63 50,96 37,63 4,50 37,37" fill="rgba(251, 191, 36, 0.35)" stroke="#f59e0b" stroke-width="2.5"/>
+                    <polygon points="50,4 63,37 96,50 63,63 50,96 37,63 4,50 37,37" fill="rgba(56, 189, 248, 0.35)" stroke="#0284c7" stroke-width="2.5" transform="rotate(45 50 50)"/>
+                    <circle cx="50" cy="50" r="12" fill="#f59e0b"/>
+                </svg>
+            </div>
 
-        <!-- البطاقة الزجاجية الرئيسية -->
-        <main class="glass-launchpad">
-            <!-- نقش قمرية يمنية يدور في الخلفية الزجاجية -->
-            <svg class="qamariya-watermark" viewBox="0 0 200 200">
-                <g stroke="currentColor" stroke-width="3" fill="none">
-                    <circle cx="100" cy="100" r="90"/>
-                    <circle cx="100" cy="100" r="65"/>
-                    <circle cx="100" cy="100" r="35"/>
-                    <polygon points="100,10 125,75 190,100 125,125 100,190 75,125 10,100 75,75"/>
-                    <polygon points="100,10 125,75 190,100 125,125 100,190 75,125 10,100 75,75" transform="rotate(45 100 100)"/>
-                </g>
-            </svg>
-
-            <div class="org-badge">
+            <div class="live-status-pill">
                 <span class="pulse-dot"></span>
                 <span>الكيان الإعلامي الرقمي</span>
             </div>
 
-            <h1 class="brand-name" dir="ltr">Rawi<span>-ye</span></h1>
-            <div class="brand-subtitle">مؤسسة راوي الإعلامية الرقمية</div>
+            <h1 class="hero-brand" dir="ltr">Rawi<span>-ye</span></h1>
+            <div class="hero-subtitle">مؤسسة راوي الإعلامية الرقمية</div>
 
-            <div class="yemeni-divider">
-                <div class="divider-line"></div>
-                <div class="divider-diamond"></div>
-                <div class="divider-diamond" style="transform: rotate(45deg) scale(1.3); background: var(--accent-secondary);"></div>
-                <div class="divider-diamond"></div>
-                <div class="divider-line"></div>
-            </div>
-
-            <p class="brand-description">
-                مؤسسة إعلامية رقمية تتشكل لتعيد صياغة المشهد المعرفي والصحفي بهوية أصيلة ورؤية عالمية. بينما نضع اللمسات الأخيرة لإطلاق بوابتنا الأم، تواصل مشاريعنا التابعة نبضها في الفضاء الرقمي.
+            <p class="hero-bio">
+                فضاء إعلامي ومعرفي يتشكل بهوية أصيلة ورؤية عالمية. بينما نضع اللمسات الأخيرة لإطلاق بوابتنا الأم، تواصل منصاتنا التابعة نبضها الحي.
             </p>
+        </header>
 
-            <div class="projects-heading">
-                <span>✦ استكشف منصاتنا ومشاريعنا التابعة ✦</span>
-            </div>
+        <!-- كبسولات المشاريع الزجاجية العائمة -->
+        <section class="spatial-pods-wrapper" aria-label="المنصات والمشاريع التابعة">
+            <div class="pods-label">✦ استكشف منصاتنا ومشاريعنا التابعة ✦</div>
 
-            <div class="projects-grid">
-                <!-- الزر الأول: الحجرية برس -->
-                <button class="project-trigger-btn" onclick="openProjectModal('pressModal')">
-                    <div class="project-icon-box icon-press">📰</div>
-                    <div class="project-btn-content">
-                        <div class="project-top-row">
-                            <h3>الحجرية برس</h3>
-                            <span class="status-pill pill-live">● نشط الآن</span>
-                        </div>
-                        <div class="project-subtitle-row">
-                            <p>صحيفة ومنصة إخبارية شاملة • اضغط للتفاصيل</p>
-                            <span class="arrow-indicator">❮</span>
-                        </div>
+            <!-- الكبسولة الأولى: الحجرية برس -->
+            <button class="spatial-pod" onclick="openModal('pressModal')">
+                <div class="pod-icon pod-icon-press">📰</div>
+                <div class="pod-body">
+                    <div class="pod-header">
+                        <span class="pod-title">الحجرية برس</span>
+                        <span class="pod-badge badge-live">● نشط الآن</span>
                     </div>
-                </button>
-
-                <!-- الزر الثاني: موسوعة ومكتبة الحجرية -->
-                <button class="project-trigger-btn" onclick="openProjectModal('libraryModal')">
-                    <div class="project-icon-box icon-library">🏛️</div>
-                    <div class="project-btn-content">
-                        <div class="project-top-row">
-                            <h3>موسوعة ومكتبة الحجرية</h3>
-                            <span class="status-pill pill-soon">⏳ قريباً</span>
-                        </div>
-                        <div class="project-subtitle-row">
-                            <p>موسوعة ومكتبة حرة مفتوحة المصدر • للتفاصيل</p>
-                            <span class="arrow-indicator">❮</span>
-                        </div>
+                    <div class="pod-sub">
+                        <span>صحيفة ومنصة إخبارية شاملة • للتفاصيل</span>
+                        <span class="pod-arrow">❮</span>
                     </div>
-                </button>
-            </div>
-        </main>
-    </div>
+                </div>
+            </button>
 
-    <!-- 8. بانوراما العمارة اليمنية والجبال (مضبوطة بـ xMidYMax slice لتظهر كاملة في الجوال بدون تشويه) -->
-    <div class="yemeni-landscape">
-        <svg class="landscape-svg" viewBox="0 0 600 240" preserveAspectRatio="xMidYMax slice">
-            <!-- الجبال اليمنية المتدرجة -->
-            <path class="mtn-far" d="M0,240 L0,115 Q90,45 190,105 T390,80 T600,95 L600,240 Z"/>
-            <path class="mtn-mid" d="M0,240 L0,145 Q140,85 290,135 T600,120 L600,240 Z"/>
+            <!-- الكبسولة الثانية: موسوعة ومكتبة الحجرية -->
+            <button class="spatial-pod" onclick="openModal('libraryModal')">
+                <div class="pod-icon pod-icon-library">🏛️</div>
+                <div class="pod-body">
+                    <div class="pod-header">
+                        <span class="pod-title">موسوعة ومكتبة الحجرية</span>
+                        <span class="pod-badge badge-soon">⏳ قريباً</span>
+                    </div>
+                    <div class="pod-sub">
+                        <span>موسوعة ومكتبة حرة مفتوحة المصدر</span>
+                        <span class="pod-arrow">❮</span>
+                    </div>
+                </div>
+            </button>
+        </section>
+
+    </main>
+
+    <!-- 6. بانوراما العمارة اليمنية والجبال والمدرجات (مكشوفة بالكامل في أسفل الشاشة) -->
+    <div class="yemen-panorama" id="yemenPanorama">
+        <svg class="panorama-svg" viewBox="0 0 600 250" preserveAspectRatio="xMidYMax slice">
+            <defs>
+                <!-- توهج الفوانيس والقمريات الليلية -->
+                <radialGradient id="lanternGlow" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stop-color="#fde047" stop-opacity="0.9"/>
+                    <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+                </radialGradient>
+            </defs>
+
+            <!-- السلسلة الجبلية البعيدة (جبل صبر والحجرية) -->
+            <path class="svg-mtn-1" d="M-20,250 L-20,115 Q85,35 195,95 T410,65 T620,105 L620,250 Z"/>
             
-            <!-- قلعة تاريخية على قمة الجبل (مستوحاة من قلعة القاهرة بتعز) -->
-            <g transform="translate(265, 58)">
-                <rect class="house-side" x="0" y="12" width="70" height="35"/>
-                <rect class="house-wall" x="8" y="4" width="54" height="43"/>
-                <polygon class="gypsum-trim" points="8,4 14,0 20,4 26,0 32,4 38,0 44,4 50,0 56,4 62,0 62,4"/>
-                <rect class="gypsum-trim" x="0" y="14" width="70" height="2.5"/>
-                <circle class="yemeni-window" cx="24" cy="24" r="4"/>
-                <circle class="yemeni-window" cx="46" cy="24" r="4"/>
+            <!-- قلعة القاهرة التاريخية شامخة على القمة -->
+            <g transform="translate(365, 32)">
+                <rect class="svg-stone-dark" x="0" y="14" width="66" height="32"/>
+                <rect class="svg-stone" x="8" y="4" width="50" height="42"/>
+                <polygon class="svg-gypsum" points="8,4 14,0 20,4 26,0 32,4 38,0 44,4 50,0 58,4"/>
+                <rect class="svg-gypsum" x="0" y="15" width="66" height="2.5"/>
+                <!-- أبراج القلعة الدائرية -->
+                <path class="svg-stone-dark" d="M-6,16 Q0,10 6,16 L6,46 L-6,46 Z"/>
+                <path class="svg-stone-dark" d="M60,16 Q66,10 72,16 L72,46 L60,46 Z"/>
+                <circle class="svg-win" cx="24" cy="24" r="3.5"/>
+                <circle class="svg-win" cx="42" cy="24" r="3.5"/>
+                <circle class="svg-lantern" cx="33" cy="20" r="28" fill="url(#lanternGlow)"/>
             </g>
 
-            <!-- البيت اليمني 1 (أقصى اليسار) -->
-            <g transform="translate(15, 105)">
-                <rect class="house-wall" x="0" y="15" width="72" height="120"/>
-                <rect class="house-side" x="-12" y="15" width="12" height="120"/>
-                <polygon class="gypsum-trim" points="0,15 8,5 16,15 24,5 32,15 40,5 48,15 56,5 64,15 72,5 72,15"/>
-                <rect class="gypsum-trim" x="-12" y="15" width="84" height="3.5"/>
-                <rect class="gypsum-trim" x="-12" y="55" width="84" height="3"/>
-                <rect class="gypsum-trim" x="-12" y="95" width="84" height="3"/>
-                <!-- قمريات -->
-                <g transform="translate(12, 24)">
-                    <path class="gypsum-trim" d="M0,13 A10,10 0 0,1 20,13 Z"/>
-                    <path class="qamariya-glass" fill="#f59e0b" d="M2,12 A8,8 0 0,1 18,12 Z"/>
-                    <rect class="yemeni-window" x="2" y="15" width="16" height="10" stroke="#fff" stroke-width="1.5"/>
+            <!-- الجبال الوسطى والمدرجات الزراعية اليمنية -->
+            <path class="svg-mtn-2" d="M-20,250 L-20,140 Q150,80 310,135 T620,115 L620,250 Z"/>
+            <path class="svg-terrace" opacity="0.45" d="M40,145 Q150,105 260,140 Z"/>
+            <path class="svg-terrace" opacity="0.35" d="M60,160 Q150,125 240,155 Z"/>
+
+            <!-- البيت اليمني 1 (يسار) -->
+            <g transform="translate(22, 108)">
+                <rect class="svg-stone" x="0" y="14" width="70" height="128"/>
+                <rect class="svg-stone-dark" x="-10" y="14" width="10" height="128"/>
+                <polygon class="svg-gypsum" points="0,14 7,5 14,14 21,5 28,14 35,5 42,14 49,5 56,14 63,5 70,14"/>
+                <rect class="svg-gypsum" x="-10" y="14" width="80" height="3.5"/>
+                <rect class="svg-gypsum" x="-10" y="54" width="80" height="2.5"/>
+                <rect class="svg-gypsum" x="-10" y="94" width="80" height="2.5"/>
+                <g transform="translate(11, 22)">
+                    <path class="svg-gypsum" d="M0,12 A10,10 0 0,1 20,12 Z"/>
+                    <path class="svg-qamariya" fill="#f59e0b" d="M2,11 A8,8 0 0,1 18,11 Z"/>
+                    <rect class="svg-win" x="2" y="14" width="16" height="10" stroke="#fff" stroke-width="1.5"/>
                 </g>
-                <g transform="translate(40, 24)">
-                    <path class="gypsum-trim" d="M0,13 A10,10 0 0,1 20,13 Z"/>
-                    <path class="qamariya-glass" fill="#38bdf8" d="M2,12 A8,8 0 0,1 18,12 Z"/>
-                    <rect class="yemeni-window" x="2" y="15" width="16" height="10" stroke="#fff" stroke-width="1.5"/>
+                <g transform="translate(39, 22)">
+                    <path class="svg-gypsum" d="M0,12 A10,10 0 0,1 20,12 Z"/>
+                    <path class="svg-qamariya" fill="#38bdf8" d="M2,11 A8,8 0 0,1 18,11 Z"/>
+                    <rect class="svg-win" x="2" y="14" width="16" height="10" stroke="#fff" stroke-width="1.5"/>
                 </g>
-                <g transform="translate(12, 63)">
-                    <path class="gypsum-trim" d="M0,13 A10,10 0 0,1 20,13 Z"/>
-                    <path class="qamariya-glass" fill="#ec4899" d="M2,12 A8,8 0 0,1 18,12 Z"/>
-                    <rect class="yemeni-window" x="2" y="15" width="16" height="10" stroke="#fff" stroke-width="1.5"/>
+                <g transform="translate(11, 62)">
+                    <path class="svg-gypsum" d="M0,12 A10,10 0 0,1 20,12 Z"/>
+                    <path class="svg-qamariya" fill="#ec4899" d="M2,11 A8,8 0 0,1 18,11 Z"/>
+                    <rect class="svg-win" x="2" y="14" width="16" height="10" stroke="#fff" stroke-width="1.5"/>
                 </g>
-                <g transform="translate(40, 63)">
-                    <path class="gypsum-trim" d="M0,13 A10,10 0 0,1 20,13 Z"/>
-                    <path class="qamariya-glass" fill="#10b981" d="M2,12 A8,8 0 0,1 18,12 Z"/>
-                    <rect class="yemeni-window" x="2" y="15" width="16" height="10" stroke="#fff" stroke-width="1.5"/>
+                <g transform="translate(39, 62)">
+                    <path class="svg-gypsum" d="M0,12 A10,10 0 0,1 20,12 Z"/>
+                    <path class="svg-qamariya" fill="#10b981" d="M2,11 A8,8 0 0,1 18,11 Z"/>
+                    <rect class="svg-win" x="2" y="14" width="16" height="10" stroke="#fff" stroke-width="1.5"/>
                 </g>
             </g>
 
             <!-- البيت اليمني 2 (يسار الوسط) -->
-            <g transform="translate(102, 125)">
-                <rect class="house-wall-alt" x="0" y="12" width="68" height="103"/>
-                <polygon class="gypsum-trim" points="0,12 8,4 17,12 25,4 34,12 42,4 51,12 59,4 68,12"/>
-                <rect class="gypsum-trim" x="0" y="12" width="68" height="3"/>
-                <rect class="gypsum-trim" x="0" y="52" width="68" height="3"/>
-                <g transform="translate(20, 21)">
-                    <path class="gypsum-trim" d="M0,14 A14,14 0 0,1 28,14 Z"/>
-                    <path class="qamariya-glass" fill="#fbbf24" d="M2,13 A12,12 0 0,1 26,13 Z"/>
-                    <rect class="yemeni-window" x="3" y="16" width="22" height="9" stroke="#fff" stroke-width="1.5"/>
+            <g transform="translate(110, 128)">
+                <rect class="svg-stone-dark" x="0" y="12" width="66" height="110"/>
+                <polygon class="svg-gypsum" points="0,12 8,4 16,12 24,4 32,12 40,4 48,12 56,4 66,12"/>
+                <rect class="svg-gypsum" x="0" y="12" width="66" height="3"/>
+                <rect class="svg-gypsum" x="0" y="52" width="66" height="2.5"/>
+                <g transform="translate(19, 20)">
+                    <path class="svg-gypsum" d="M0,14 A14,14 0 0,1 28,14 Z"/>
+                    <path class="svg-qamariya" fill="#fbbf24" d="M2,13 A12,12 0 0,1 26,13 Z"/>
+                    <rect class="svg-win" x="3" y="16" width="22" height="9" stroke="#fff" stroke-width="1.5"/>
                 </g>
-                <rect class="yemeni-window" x="14" y="62" width="15" height="14" stroke="#fff" stroke-width="1.5"/>
-                <rect class="yemeni-window" x="39" y="62" width="15" height="14" stroke="#fff" stroke-width="1.5"/>
+                <rect class="svg-win" x="14" y="60" width="14" height="13" stroke="#fff" stroke-width="1.5"/>
+                <rect class="svg-win" x="38" y="60" width="14" height="13" stroke="#fff" stroke-width="1.5"/>
             </g>
 
-            <!-- البيت اليمني 3 (برج صنعاني/تعزي في المنتصف تماماً ليظهر في قلب شاشة الجوال) -->
-            <g transform="translate(185, 92)">
-                <rect class="house-wall" x="0" y="16" width="84" height="132"/>
-                <rect class="house-side" x="84" y="16" width="14" height="132"/>
-                <polygon class="gypsum-trim" points="0,16 7,5 14,16 21,5 28,16 35,5 42,16 49,5 56,16 63,5 70,16 77,5 84,16"/>
-                <rect class="gypsum-trim" x="0" y="16" width="98" height="4"/>
-                <rect class="gypsum-trim" x="0" y="58" width="98" height="3"/>
-                <rect class="gypsum-trim" x="0" y="98" width="98" height="3"/>
-                <!-- قمرية ملكية في المنتصف -->
-                <g transform="translate(26, 25)">
-                    <path class="gypsum-trim" d="M0,16 A16,16 0 0,1 32,16 Z"/>
-                    <path class="qamariya-glass" fill="#f97316" d="M2,15 A14,14 0 0,1 30,15 Z"/>
-                    <rect class="yemeni-window" x="3" y="18" width="26" height="10" stroke="#fff" stroke-width="1.5"/>
+            <!-- الدار اليمنية الكبرى (في قلب الشاشة تماماً) -->
+            <g transform="translate(198, 92)">
+                <circle class="svg-lantern" cx="45" cy="50" r="60" fill="url(#lanternGlow)"/>
+                <rect class="svg-stone" x="0" y="16" width="88" height="142"/>
+                <rect class="svg-stone-dark" x="88" y="16" width="14" height="142"/>
+                <polygon class="svg-gypsum" points="0,16 7,5 14,16 21,5 28,16 35,5 42,16 49,5 56,16 63,5 70,16 77,5 88,16"/>
+                <rect class="svg-gypsum" x="0" y="16" width="102" height="4"/>
+                <rect class="svg-gypsum" x="0" y="58" width="102" height="3"/>
+                <rect class="svg-gypsum" x="0" y="98" width="102" height="3"/>
+                <!-- قمرية البهو العلوي (المنفرج) -->
+                <g transform="translate(26, 24)">
+                    <path class="svg-gypsum" d="M0,17 A18,18 0 0,1 36,17 Z"/>
+                    <path class="svg-qamariya" fill="#f97316" d="M2,16 A16,16 0 0,1 34,16 Z"/>
+                    <rect class="svg-win" x="3" y="19" width="30" height="10" stroke="#fff" stroke-width="1.5"/>
                 </g>
                 <g transform="translate(14, 66)">
-                    <path class="gypsum-trim" d="M0,12 A10,10 0 0,1 20,12 Z"/>
-                    <path class="qamariya-glass" fill="#a855f7" d="M2,11 A8,8 0 0,1 18,11 Z"/>
-                    <rect class="yemeni-window" x="2" y="14" width="16" height="10" stroke="#fff" stroke-width="1.5"/>
+                    <path class="svg-gypsum" d="M0,12 A10,10 0 0,1 20,12 Z"/>
+                    <path class="svg-qamariya" fill="#a855f7" d="M2,11 A8,8 0 0,1 18,11 Z"/>
+                    <rect class="svg-win" x="2" y="14" width="16" height="10" stroke="#fff" stroke-width="1.5"/>
                 </g>
-                <g transform="translate(50, 66)">
-                    <path class="gypsum-trim" d="M0,12 A10,10 0 0,1 20,12 Z"/>
-                    <path class="qamariya-glass" fill="#06b6d4" d="M2,11 A8,8 0 0,1 18,11 Z"/>
-                    <rect class="yemeni-window" x="2" y="14" width="16" height="10" stroke="#fff" stroke-width="1.5"/>
+                <g transform="translate(54, 66)">
+                    <path class="svg-gypsum" d="M0,12 A10,10 0 0,1 20,12 Z"/>
+                    <path class="svg-qamariya" fill="#06b6d4" d="M2,11 A8,8 0 0,1 18,11 Z"/>
+                    <rect class="svg-win" x="2" y="14" width="16" height="10" stroke="#fff" stroke-width="1.5"/>
                 </g>
+                <rect class="svg-win" x="18" y="106" width="16" height="15" stroke="#fff" stroke-width="1.5"/>
+                <rect class="svg-win" x="54" y="106" width="16" height="15" stroke="#fff" stroke-width="1.5"/>
             </g>
 
             <!-- البيت اليمني 4 (يمين الوسط) -->
-            <g transform="translate(330, 118)">
-                <rect class="house-wall-alt" x="0" y="14" width="76" height="108"/>
-                <rect class="house-side" x="76" y="14" width="12" height="108"/>
-                <polygon class="gypsum-trim" points="0,14 8,5 16,14 24,5 32,14 40,5 48,14 56,5 64,14 72,5 76,14"/>
-                <rect class="gypsum-trim" x="0" y="14" width="88" height="3.5"/>
-                <rect class="gypsum-trim" x="0" y="56" width="88" height="3"/>
-                <g transform="translate(13, 24)">
-                    <path class="gypsum-trim" d="M0,13 A10,10 0 0,1 20,13 Z"/>
-                    <path class="qamariya-glass" fill="#10b981" d="M2,12 A8,8 0 0,1 18,12 Z"/>
-                    <rect class="yemeni-window" x="2" y="15" width="16" height="10" stroke="#fff" stroke-width="1.5"/>
+            <g transform="translate(318, 120)">
+                <rect class="svg-stone-dark" x="0" y="14" width="76" height="116"/>
+                <rect class="svg-stone" x="76" y="14" width="10" height="116"/>
+                <polygon class="svg-gypsum" points="0,14 8,5 16,14 24,5 32,14 40,5 48,14 56,5 64,14 76,5 76,14"/>
+                <rect class="svg-gypsum" x="0" y="14" width="86" height="3.5"/>
+                <rect class="svg-gypsum" x="0" y="56" width="86" height="2.5"/>
+                <g transform="translate(13, 23)">
+                    <path class="svg-gypsum" d="M0,12 A10,10 0 0,1 20,12 Z"/>
+                    <path class="svg-qamariya" fill="#10b981" d="M2,11 A8,8 0 0,1 18,11 Z"/>
+                    <rect class="svg-win" x="2" y="14" width="16" height="10" stroke="#fff" stroke-width="1.5"/>
                 </g>
-                <g transform="translate(43, 24)">
-                    <path class="gypsum-trim" d="M0,13 A10,10 0 0,1 20,13 Z"/>
-                    <path class="qamariya-glass" fill="#eab308" d="M2,12 A8,8 0 0,1 18,12 Z"/>
-                    <rect class="yemeni-window" x="2" y="15" width="16" height="10" stroke="#fff" stroke-width="1.5"/>
+                <g transform="translate(43, 23)">
+                    <path class="svg-gypsum" d="M0,12 A10,10 0 0,1 20,12 Z"/>
+                    <path class="svg-qamariya" fill="#eab308" d="M2,11 A8,8 0 0,1 18,11 Z"/>
+                    <rect class="svg-win" x="2" y="14" width="16" height="10" stroke="#fff" stroke-width="1.5"/>
                 </g>
-                <rect class="yemeni-window" x="16" y="66" width="16" height="14" stroke="#fff" stroke-width="1.5"/>
-                <rect class="yemeni-window" x="44" y="66" width="16" height="14" stroke="#fff" stroke-width="1.5"/>
+                <rect class="svg-win" x="16" y="65" width="16" height="14" stroke="#fff" stroke-width="1.5"/>
+                <rect class="svg-win" x="44" y="65" width="16" height="14" stroke="#fff" stroke-width="1.5"/>
             </g>
 
             <!-- البيت اليمني 5 (أقصى اليمين) -->
-            <g transform="translate(485, 100)">
-                <rect class="house-wall" x="0" y="15" width="82" height="125"/>
-                <rect class="house-side" x="82" y="15" width="16" height="125"/>
-                <polygon class="gypsum-trim" points="0,15 8,5 16,15 24,5 32,15 40,5 48,15 56,5 64,15 72,5 82,15"/>
-                <rect class="gypsum-trim" x="0" y="15" width="98" height="3.5"/>
-                <rect class="gypsum-trim" x="0" y="55" width="98" height="3"/>
-                <rect class="gypsum-trim" x="0" y="95" width="98" height="3"/>
+            <g transform="translate(490, 102)">
+                <rect class="svg-stone" x="0" y="15" width="80" height="135"/>
+                <rect class="svg-stone-dark" x="80" y="15" width="14" height="135"/>
+                <polygon class="svg-gypsum" points="0,15 8,5 16,15 24,5 32,15 40,5 48,15 56,5 64,15 72,5 80,15"/>
+                <rect class="svg-gypsum" x="0" y="15" width="94" height="3.5"/>
+                <rect class="svg-gypsum" x="0" y="55" width="94" height="3"/>
+                <rect class="svg-gypsum" x="0" y="95" width="94" height="3"/>
                 <g transform="translate(14, 24)">
-                    <path class="gypsum-trim" d="M0,13 A10,10 0 0,1 20,13 Z"/>
-                    <path class="qamariya-glass" fill="#ec4899" d="M2,12 A8,8 0 0,1 18,12 Z"/>
-                    <rect class="yemeni-window" x="2" y="15" width="16" height="10" stroke="#fff" stroke-width="1.5"/>
+                    <path class="svg-gypsum" d="M0,12 A10,10 0 0,1 20,12 Z"/>
+                    <path class="svg-qamariya" fill="#ec4899" d="M2,11 A8,8 0 0,1 18,11 Z"/>
+                    <rect class="svg-win" x="2" y="14" width="16" height="10" stroke="#fff" stroke-width="1.5"/>
                 </g>
                 <g transform="translate(46, 24)">
-                    <path class="gypsum-trim" d="M0,13 A10,10 0 0,1 20,13 Z"/>
-                    <path class="qamariya-glass" fill="#38bdf8" d="M2,12 A8,8 0 0,1 18,12 Z"/>
-                    <rect class="yemeni-window" x="2" y="15" width="16" height="10" stroke="#fff" stroke-width="1.5"/>
+                    <path class="svg-gypsum" d="M0,12 A10,10 0 0,1 20,12 Z"/>
+                    <path class="svg-qamariya" fill="#38bdf8" d="M2,11 A8,8 0 0,1 18,11 Z"/>
+                    <rect class="svg-win" x="2" y="14" width="16" height="10" stroke="#fff" stroke-width="1.5"/>
                 </g>
             </g>
 
-            <!-- التلال الأمامية في أسفل الشاشة -->
-            <path class="mtn-near" d="M0,240 L0,198 Q150,172 300,195 T600,185 L600,240 Z"/>
+            <!-- التلال الأمامية في القاع -->
+            <path class="svg-mtn-3" d="M-20,250 L-20,202 Q150,175 310,198 T620,188 L620,250 Z"/>
         </svg>
     </div>
 
-    <!-- 9. النافذة المنبثقة الأولى: الحجرية برس -->
-    <div class="modal-overlay" id="pressModal" onclick="closeModalOnOutsideClick(event, 'pressModal')">
-        <div class="modal-glass-card">
-            <button class="modal-close-btn" onclick="closeProjectModal('pressModal')" aria-label="إغلاق">✕</button>
-            
-            <div class="modal-qamariya-arch icon-press">📰</div>
-            <h2 class="modal-title">الحجرية برس</h2>
-            <span class="modal-category-tag pill-live">● منصة إخبارية نشطة</span>
+    <!-- 7. نافذة تفاصيل الحجرية برس -->
+    <div class="modal-backdrop" id="pressModal" onclick="closeOnBackdrop(event, 'pressModal')">
+        <div class="modal-sheet">
+            <button class="close-circle" onclick="closeModal('pressModal')" aria-label="إغلاق">✕</button>
+            <div class="modal-emblem pod-icon-press">📰</div>
+            <h2 class="modal-heading">الحجرية برس</h2>
+            <span class="pod-badge badge-live">● منصة إخبارية نشطة</span>
 
-            <div class="modal-desc-box">
+            <p class="modal-description">
                 صحيفة ومنصة إخبارية رقمية شاملة تابعة لمؤسسة <strong>Rawi-ye</strong>. تنطلق برؤية صحفية معاصرة لتقديم تغطية إخبارية موثوقة، تقارير ميدانية معمقة، وتحليلات رصينة تواكب الأحداث على مدار الساعة بمهنية وموضوعية عالية.
+            </p>
+
+            <div class="modal-tags">
+                <span class="tag-item">⚡ تغطيات إخبارية مستمرة</span>
+                <span class="tag-item">🔍 تقارير وتحليلات</span>
+                <span class="tag-item">🌐 صحافة رقمية حديثة</span>
             </div>
 
-            <div class="modal-features">
-                <span class="feature-chip">⚡ أخبار وتغطيات مستمرة</span>
-                <span class="feature-chip">🔍 تقارير وتحليلات</span>
-                <span class="feature-chip">🌐 صحافة رقمية حديثة</span>
-            </div>
-
-            <a href="https://hujariyapress.rawi-ye.com" target="_blank" rel="noopener noreferrer" class="visit-project-btn">
+            <a href="https://hujariyapress.rawi-ye.com" target="_blank" rel="noopener noreferrer" class="cta-visit-btn">
                 <span>زيارة موقع الحجرية برس</span>
                 <span>↗</span>
             </a>
         </div>
     </div>
 
-    <!-- 10. النافذة المنبثقة الثانية: موسوعة ومكتبة الحجرية -->
-    <div class="modal-overlay" id="libraryModal" onclick="closeModalOnOutsideClick(event, 'libraryModal')">
-        <div class="modal-glass-card">
-            <button class="modal-close-btn" onclick="closeProjectModal('libraryModal')" aria-label="إغلاق">✕</button>
-            
-            <div class="modal-qamariya-arch icon-library">🏛️</div>
-            <h2 class="modal-title">موسوعة ومكتبة الحجرية</h2>
-            <span class="modal-category-tag pill-soon">⏳ مشروع معرفي قيد التجهيز</span>
+    <!-- 8. نافذة تفاصيل موسوعة ومكتبة الحجرية -->
+    <div class="modal-backdrop" id="libraryModal" onclick="closeOnBackdrop(event, 'libraryModal')">
+        <div class="modal-sheet">
+            <button class="close-circle" onclick="closeModal('libraryModal')" aria-label="إغلاق">✕</button>
+            <div class="modal-emblem pod-icon-library">🏛️</div>
+            <h2 class="modal-heading">موسوعة ومكتبة الحجرية</h2>
+            <span class="pod-badge badge-soon">⏳ مشروع معرفي قيد التجهيز</span>
 
-            <div class="modal-desc-box">
+            <p class="modal-description">
                 مكتبة وموسوعة حرة مفتوحة المصدر تابعة لمؤسسة <strong>Rawi-ye</strong>. يهدف هذا المشروع المعرفي إلى بناء أرشيف رقمي شامل ومفتوح يوثق التاريخ، الثقافة، الأدب، والعلوم، ويوفر للباحثين والقراء مصدراً معرفياً حراً ومتاحاً للجميع.
+            </p>
+
+            <div class="modal-tags">
+                <span class="tag-item">📖 مكتبة رقمية شاملة</span>
+                <span class="tag-item">🔓 موسوعة حرة مفتوحة المصدر</span>
+                <span class="tag-item">🏺 توثيق التراث والمعرفة</span>
             </div>
 
-            <div class="modal-features">
-                <span class="feature-chip">📖 مكتبة رقمية شاملة</span>
-                <span class="feature-chip">🔓 موسوعة حرة مفتوحة المصدر</span>
-                <span class="feature-chip">🏺 توثيق التراث والمعرفة</span>
-            </div>
-
-            <div class="soon-banner-box">
+            <div class="cta-soon-box">
                 <span>✨</span>
                 <span>ترقبوا الإطلاق الرسمي قريباً</span>
             </div>
         </div>
     </div>
 
-    <!-- 11. الجافاسكريبت (النجوم، تعاقب الليل والنهار كل 5 ثوانٍ، النوافذ) -->
+    <!-- 9. المحرك البرمجي الشامل (Canvas + دورة الطبيعة التلقائية + Parallax) -->
     <script>
-        // 1. توليد النجوم في السماء
-        const starsContainer = document.getElementById('starsContainer');
-        for (let i = 0; i < 45; i++) {
-            const star = document.createElement('div');
-            star.className = 'star';
-            const size = Math.random() * 3 + 1.5;
-            star.style.width = `${size}px`;
-            star.style.height = `${size}px`;
-            star.style.top = `${Math.random() * 55}%`;
-            star.style.left = `${Math.random() * 100}%`;
-            star.style.animationDelay = `${Math.random() * 3}s`;
-            starsContainer.appendChild(star);
+        /* =========================================
+           أولاً: دورة الزمن التلقائية السلسة (بدون أي شريط علوي)
+           ========================================= */
+        const phases = ['dawn', 'day', 'sunset', 'night'];
+        let phaseIdx = 1; // يبدأ بالنهار الصيفي المشرق
+
+        function advanceTimePhase() {
+            phaseIdx = (phaseIdx + 1) % phases.length;
+            document.body.setAttribute('data-phase', phases[phaseIdx]);
         }
 
-        // 2. تعاقب الليل والنهار تلقائياً كل 5 ثوانٍ
-        const phases = ['phase-dawn', 'phase-day', 'phase-sunset', 'phase-night'];
-        let currentPhaseIndex = 1;
-        let cycleInterval;
+        // يتغير الجو تلقائياً بنعومة كل 5.5 ثوانٍ
+        setInterval(advanceTimePhase, 5500);
 
-        function applyPhase(index) {
-            currentPhaseIndex = index;
-            document.body.className = phases[currentPhaseIndex];
-            const buttons = document.querySelectorAll('.time-btn');
-            buttons.forEach((btn, idx) => {
-                btn.classList.toggle('active', idx === currentPhaseIndex);
-            });
+        /* =========================================
+           ثانياً: محرك Canvas للرسوم المتحركة الحية (طيور، سحب، نجوم، شهب، يراعات)
+           ========================================= */
+        const canvas = document.getElementById('worldCanvas');
+        const ctx = canvas.getContext('2d');
+        let width, height;
+
+        function resizeCanvas() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        // 1. النجوم المتلألئة
+        const stars = Array.from({ length: 65 }, () => ({
+            x: Math.random(),
+            y: Math.random() * 0.62,
+            r: Math.random() * 1.8 + 0.6,
+            alpha: Math.random(),
+            speed: Math.random() * 0.02 + 0.008
+        }));
+
+        // 2. السحب الكرتونية الناعمة
+        const clouds = [
+            { x: 0.1, y: 0.12, scale: 0.85, speed: 0.00025 },
+            { x: 0.55, y: 0.22, scale: 0.65, speed: 0.00018 },
+            { x: 0.85, y: 0.08, scale: 0.95, speed: 0.00022 }
+        ];
+
+        // 3. أسراب الطيور الكرتونية
+        const birds = Array.from({ length: 5 }, (_, i) => ({
+            x: -0.1 - i * 0.04,
+            y: 0.16 + (i % 3) * 0.025,
+            wing: i * 1.2,
+            speedX: 0.00075
+        }));
+
+        // 4. ومضات الوديان اليمنية المضيئة ليلاً (Fireflies)
+        const fireflies = Array.from({ length: 18 }, () => ({
+            x: Math.random(),
+            y: 0.65 + Math.random() * 0.28,
+            r: Math.random() * 2.2 + 1,
+            phase: Math.random() * Math.PI * 2,
+            speedY: Math.random() * 0.0004 + 0.0002
+        }));
+
+        function drawCloud(cx, cy, scale, alpha) {
+            ctx.save();
+            ctx.translate(cx, cy);
+            ctx.scale(scale, scale);
+            ctx.fillStyle = `rgba(255, 255, 255, ${alpha})`;
+            ctx.beginPath();
+            ctx.arc(0, 0, 24, 0, Math.PI * 2);
+            ctx.arc(22, -8, 28, 0, Math.PI * 2);
+            ctx.arc(48, -2, 22, 0, Math.PI * 2);
+            ctx.arc(24, 8, 24, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.restore();
         }
 
-        function startAutoCycle() {
-            cycleInterval = setInterval(() => {
-                applyPhase((currentPhaseIndex + 1) % phases.length);
-            }, 5000);
-        }
+        function animateWorld() {
+            ctx.clearRect(0, 0, width, height);
+            const currentPhase = document.body.getAttribute('data-phase');
 
-        function manualSetPhase(index) {
-            clearInterval(cycleInterval);
-            applyPhase(index);
-            startAutoCycle();
-        }
-
-        startAutoCycle();
-
-        // 3. فتح وإغلاق النوافذ المنبثقة
-        function openProjectModal(modalId) {
-            const modal = document.getElementById(modalId);
-            if (modal) modal.classList.add('open');
-        }
-
-        function closeProjectModal(modalId) {
-            const modal = document.getElementById(modalId);
-            if (modal) modal.classList.remove('open');
-        }
-
-        function closeModalOnOutsideClick(event, modalId) {
-            if (event.target.id === modalId) closeProjectModal(modalId);
-        }
-
-        document.addEventListener('keydown', (event) => {
-            if (event.key === 'Escape') {
-                document.querySelectorAll('.modal-overlay.open').forEach(m => m.classList.remove('open'));
+            // أ. رسم النجوم في الليل والغروب
+            if (currentPhase === 'night' || currentPhase === 'sunset' || currentPhase === 'dawn') {
+                const starVis = currentPhase === 'night' ? 1 : 0.35;
+                stars.forEach(s => {
+                    s.alpha += s.speed;
+                    const a = (Math.sin(s.alpha) * 0.4 + 0.6) * starVis;
+                    ctx.fillStyle = `rgba(255, 255, 240, ${a})`;
+                    ctx.beginPath();
+                    ctx.arc(s.x * width, s.y * height, s.r, 0, Math.PI * 2);
+                    ctx.fill();
+                });
             }
+
+            // ب. رسم السحب الكرتونية
+            const cloudAlpha = currentPhase === 'night' ? 0.14 : (currentPhase === 'day' ? 0.82 : 0.55);
+            clouds.forEach(c => {
+                c.x += c.speed;
+                if (c.x > 1.2) c.x = -0.25;
+                drawCloud(c.x * width, c.y * height, c.scale, cloudAlpha);
+            });
+
+            // ج. رسم الطيور المتحركة في النهار والشروق والغروب
+            if (currentPhase !== 'night') {
+                ctx.strokeStyle = currentPhase === 'sunset' ? 'rgba(255,240,220,0.8)' : 'rgba(15, 23, 42, 0.65)';
+                ctx.lineWidth = 2;
+                ctx.lineCap = 'round';
+                birds.forEach(b => {
+                    b.x += b.speedX;
+                    b.wing += 0.12;
+                    if (b.x > 1.15) b.x = -0.15;
+                    const bx = b.x * width;
+                    const by = b.y * height + Math.sin(b.wing * 0.5) * 4;
+                    const wingY = Math.sin(b.wing) * 6;
+
+                    ctx.beginPath();
+                    ctx.moveTo(bx - 8, by - wingY);
+                    ctx.quadraticCurveTo(bx - 4, by - 4, bx, by);
+                    ctx.quadraticCurveTo(bx + 4, by - 4, bx + 8, by - wingY);
+                    ctx.stroke();
+                });
+            }
+
+            // د. رسم اليراعات الذهبية الصاعدة من البيوت والوديان في الليل والغروب
+            if (currentPhase === 'night' || currentPhase === 'sunset') {
+                fireflies.forEach(f => {
+                    f.y -= f.speedY;
+                    f.phase += 0.06;
+                    if (f.y < 0.52) f.y = 0.92;
+                    const fx = (f.x + Math.sin(f.phase) * 0.01) * width;
+                    const fy = f.y * height;
+                    const glow = (Math.sin(f.phase) * 0.5 + 0.5) * 0.85;
+
+                    ctx.fillStyle = `rgba(253, 224, 71, ${glow})`;
+                    ctx.beginPath();
+                    ctx.arc(fx, fy, f.r, 0, Math.PI * 2);
+                    ctx.fill();
+                });
+            }
+
+            requestAnimationFrame(animateWorld);
+        }
+        animateWorld();
+
+        /* =========================================
+           ثالثاً: عمق تفاعلي خفيف للجبال والبيوت عند تحريك الهاتف أو الماوس
+           ========================================= */
+        const panorama = document.getElementById('yemenPanorama');
+        window.addEventListener('mousemove', (e) => {
+            const moveX = (e.clientX / window.innerWidth - 0.5) * 14;
+            panorama.style.transform = `translateX(${moveX}px)`;
         });
+
+        /* =========================================
+           رابعاً: التحكم بالنوافذ الزجاجية المنبثقة
+           ========================================= */
+        function openModal(id) {
+            document.getElementById(id).classList.add('open');
+        }
+        function closeModal(id) {
+            document.getElementById(id).classList.remove('open');
+        }
+        function closeOnBackdrop(e, id) {
+            if (e.target.id === id) closeModal(id);
+        }
     </script>
 </body>
 </html>
